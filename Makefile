@@ -1,31 +1,30 @@
 NAME = push_swap
 
 SRC = push_swap.c push_swap_utils.c 
+LIB= ./libft/libft.a
 
 OBJ = $(SRC:.c=.o)
 
 
 CFLAGS = -Wall -Wextra -Werror
 
-$(NAME): $(OBJ)
+$(NAME): lib 
+	cc $(SRC) $(LIB) -o $(NAME) 
 
 lib:
-	cd libft && make && make bonus 
+	 make -C ./libft && make bonus -C ./libft
 
 clean_lib:
-	cd libft && make clean
+	 make clean -C ./libft
 
 fclean_lib:
-	cd libft && make fclean
+	make fclean -C ./libft
 
 re_lib:
-	cd libft && make re
+	make re -C ./libft
 
 all: $(NAME)
 
-%.o: %.c
-	cc $(CFLAGS) -c $<
-	ar -rc $(NAME) $@
 
 clean:
 	rm -rf $(OBJ)
