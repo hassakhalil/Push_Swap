@@ -6,12 +6,12 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:16:05 by hkhalil           #+#    #+#             */
-/*   Updated: 2021/12/14 02:07:12 by hkhalil          ###   ########.fr       */
+/*   Updated: 2021/12/14 02:21:18 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+#include <stdio.h>
 t_list  *indexation(int argc, char *argv[])
 {
     int     i;
@@ -34,7 +34,7 @@ t_list  *indexation(int argc, char *argv[])
         {
             tmp = numbers[i];
             numbers[i] = numbers[i + 1];
-            numbers[i] = tmp;
+            numbers[i + 1] = tmp;
             i = 0;
         }
         i++;
@@ -62,12 +62,13 @@ t_list  *indexation(int argc, char *argv[])
 
 int main(int argc, char *argv[])
 {
-   // int i = 0;
+    int i = 0;
     t_list  *list = indexation(argc, argv);
-    while (list)
+    while (i < 3)
     {
-        printf("%d/n", *((int *)(list->content)));
+        printf("%d\n", *((int *)(list->content)));
         list = list->next;
+        i++;
     }
     return (0);
 }
