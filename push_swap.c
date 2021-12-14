@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:16:05 by hkhalil           #+#    #+#             */
-/*   Updated: 2021/12/14 02:31:14 by hkhalil          ###   ########.fr       */
+/*   Updated: 2021/12/14 02:35:18 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_list  *indexation(int argc, char *argv[])
     i = 0;
     while (i < argc - 3)
     {
-        if (numbers[i] < numbers[i + 1])
+        if (numbers[i] > numbers[i + 1])
         {
             tmp = numbers[i];
             numbers[i] = numbers[i + 1];
@@ -62,13 +62,13 @@ t_list  *indexation(int argc, char *argv[])
 
 int main(int argc, char *argv[])
 {
-    int i = 0;
+    //int i = 0;
     t_list  *list = indexation(argc, argv);
-    while (i < 3)
+    while (argc - 2)
     {
         printf("%d\n", list->content);
         list = list->next;
-        i++;
+        argc--;
     }
     return (0);
 }
