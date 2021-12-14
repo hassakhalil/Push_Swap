@@ -6,12 +6,13 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:16:05 by hkhalil           #+#    #+#             */
-/*   Updated: 2021/12/14 02:35:18 by hkhalil          ###   ########.fr       */
+/*   Updated: 2021/12/14 04:23:33 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
+
 t_list  *indexation(int argc, char *argv[])
 {
     int     i;
@@ -72,4 +73,10 @@ int main(int argc, char *argv[])
     }
     return (0);
 }
+//wdqwdqwd
+//qwdqwdqwdq
 
+//ewfwe
+
+//wef
+//ewf//qwdqw
