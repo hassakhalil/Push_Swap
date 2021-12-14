@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:16:05 by hkhalil           #+#    #+#             */
-/*   Updated: 2021/12/14 01:49:38 by hkhalil          ###   ########.fr       */
+/*   Updated: 2021/12/14 02:07:12 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,18 @@ t_list  *indexation(int argc, char *argv[])
     int     i;
     int     j;
     int     tmp;
-    int     argc_holder;
     t_list  *index_list;
     int     *numbers;
 
-    argc_holder = argc - 1;
-    numbers = malloc(sizeof(int) * argc_holder);
+    numbers = malloc(sizeof(int *) * (argc - 1));
     i  = 0;
-    while (argc_holder)
+    while (i < argc - 1)
     {
         numbers[i] = ft_atoi(argv[i + 1]);
         i++;
-        argc_holder--;
     }
     i = 0;
-    while (i < argc - 2)
+    while (i < argc - 3)
     {
         if (numbers[i] < numbers[i + 1])
         {
@@ -57,6 +54,7 @@ t_list  *indexation(int argc, char *argv[])
         }
         i++;
     }
+    free(numbers);
     return (index_list);
 }
 
