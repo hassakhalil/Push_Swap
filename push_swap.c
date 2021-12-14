@@ -1,12 +1,12 @@
-/*  ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/12 16:16:05 by hkhalil           #+#    #+#             */
-/*   Updated: 2021/12/14 04:43:26 by hkhalil          ###   ########.fr       */
+/*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
+/*   Updated: 2021/12/14 05:44:21 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list  *indexation(int argc, char *argv[])
     int     i;
     int     j;
     int     tmp;
-    t_list  *index_list;
+    t_list  *index_list = NULL;
     int     *numbers;
 
     numbers = malloc(sizeof(int *) * (argc - 1));
@@ -29,7 +29,7 @@ t_list  *indexation(int argc, char *argv[])
         i++;
     }
     i = 0;
-    while (i < argc - 2)
+    while (i < (argc - 2))
     {
         if (numbers[i] > numbers[i + 1])
         {
@@ -40,30 +40,21 @@ t_list  *indexation(int argc, char *argv[])
         }
         i++;
     }
-    //debug
-   /* i = 0;
-    while (i < argc - 3)
+    j = 1;
+    while (argv[j])
     {
-        printf("-------%d--------\n", numbers[i]);
-        i++;
-    }*/
-    i = 0;
-    while (i < argc - 1)
-    {
-        j = 1;
-        while(argv[j])
+        i = 0;
+        while (i < argc - 1)
         {
             if (numbers[i] == ft_atoi(argv[j]))
             {
-                 ft_lstadd_back(&index_list,ft_lstnew(j));
-                printf("---%d---\n", j);
+                 ft_lstadd_back(&index_list,ft_lstnew(i));
                  break;
             }
-            j++;
+            i++;
         }
-        i++;
+        j++;
     }
-    printf("success3\n");
     free(numbers);
     return (index_list);
 }
