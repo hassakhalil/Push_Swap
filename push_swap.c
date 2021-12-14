@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:16:05 by hkhalil           #+#    #+#             */
-/*   Updated: 2021/12/14 01:41:57 by hkhalil          ###   ########.fr       */
+/*   Updated: 2021/12/14 01:49:38 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ t_list  *indexation(int argc, char *argv[])
 
 int main(int argc, char *argv[])
 {
-    int i = 0;
+   // int i = 0;
     t_list  *list = indexation(argc, argv);
     while (list)
     {
-        printf("%d/n", *(list->content));
+        printf("%d/n", *((int *)(list->content)));
         list = list->next;
     }
     return (0);
