@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:16:05 by hkhalil           #+#    #+#             */
-/*   Updated: 2021/12/14 04:23:33 by hkhalil          ###   ########.fr       */
+/*   Updated: 2021/12/14 04:43:26 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_list  *indexation(int argc, char *argv[])
         i++;
     }
     i = 0;
-    while (i < argc - 3)
+    while (i < argc - 2)
     {
         if (numbers[i] > numbers[i + 1])
         {
@@ -40,6 +40,13 @@ t_list  *indexation(int argc, char *argv[])
         }
         i++;
     }
+    //debug
+   /* i = 0;
+    while (i < argc - 3)
+    {
+        printf("-------%d--------\n", numbers[i]);
+        i++;
+    }*/
     i = 0;
     while (i < argc - 1)
     {
@@ -49,12 +56,14 @@ t_list  *indexation(int argc, char *argv[])
             if (numbers[i] == ft_atoi(argv[j]))
             {
                  ft_lstadd_back(&index_list,ft_lstnew(j));
-                break;
+                printf("---%d---\n", j);
+                 break;
             }
             j++;
         }
         i++;
     }
+    printf("success3\n");
     free(numbers);
     return (index_list);
 }
@@ -65,18 +74,10 @@ int main(int argc, char *argv[])
 {
     //int i = 0;
     t_list  *list = indexation(argc, argv);
-    while (argc - 2)
+    while (list)
     {
         printf("%d\n", list->content);
         list = list->next;
-        argc--;
     }
     return (0);
 }
-//wdqwdqwd
-//qwdqwdqwdq
-
-//ewfwe
-
-//wef
-//ewf//qwdqw
