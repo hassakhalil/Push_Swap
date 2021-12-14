@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:16:05 by hkhalil           #+#    #+#             */
-/*   Updated: 2021/12/13 22:32:39 by hkhalil          ###   ########.fr       */
+/*   Updated: 2021/12/14 01:41:57 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ t_list  *indexation(int argc, char *argv[])
     int     tmp;
     int     argc_holder;
     t_list  *index_list;
-    int     numbers[];
+    int     *numbers;
 
     argc_holder = argc - 1;
     numbers = malloc(sizeof(int) * argc_holder);
     i  = 0;
     while (argc_holder)
     {
-        numbers[i] = ft_atoi(argc[i + 1]);
+        numbers[i] = ft_atoi(argv[i + 1]);
         i++;
-        agrc_holder--;
+        argc_holder--;
     }
     i = 0;
     while (i < argc - 2)
@@ -43,20 +43,20 @@ t_list  *indexation(int argc, char *argv[])
         i++;
     }
     i = 0;
-    while (i < argc -1)
+    while (i < argc - 1)
     {
         j = 1;
         while(argv[j])
         {
             if (numbers[i] == ft_atoi(argv[j]))
             {
-                 ft_lstadd_back(&index_list,lstnew(&j));
+                 ft_lstadd_back(&index_list,ft_lstnew(&j));
                 break;
             }
             j++;
         }
         i++;
-        }
+    }
     return (index_list);
 }
 
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
     t_list  *list = indexation(argc, argv);
     while (list)
     {
-        printf("%d/n", *list->content);
+        printf("%d/n", *(list->content));
         list = list->next;
     }
     return (0);
