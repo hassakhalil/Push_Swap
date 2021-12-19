@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2021/12/14 05:44:21 by hkhalil          ###   ########.fr       */
+/*   Updated: 2021/12/19 21:19:07 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_list  *indexation(int argc, char *argv[])
         i++;
     }
     i = 0;
-    while (i < (argc - 2))
+    while (i < argc - 2)
     {
         if (numbers[i] > numbers[i + 1])
         {
@@ -38,22 +38,31 @@ t_list  *indexation(int argc, char *argv[])
             numbers[i + 1] = tmp;
             i = 0;
         }
+        else
+            i++;
+    }
+    //debug---------------------------
+    i = 0;
+    while (i < argc - 1)
+    {
+        printf("+++++|%d|+++++\n", numbers[i]);
         i++;
     }
-    j = 1;
-    while (argv[j])
+    //end debug-----------------------
+    i = 0;
+    while (i < argc - 1)
     {
-        i = 0;
-        while (i < argc - 1)
+        j = 1;
+        while (argv[j])
         {
             if (numbers[i] == ft_atoi(argv[j]))
             {
-                 ft_lstadd_back(&index_list,ft_lstnew(i));
+                 ft_lstadd_back(&index_list,ft_lstnew(j - 1));
                  break;
             }
-            i++;
+            j++;
         }
-        j++;
+        i++;
     }
     free(numbers);
     return (index_list);
@@ -63,7 +72,6 @@ t_list  *indexation(int argc, char *argv[])
 
 int main(int argc, char *argv[])
 {
-    //int i = 0;
     t_list  *list = indexation(argc, argv);
     while (list)
     {
