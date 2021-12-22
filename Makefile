@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/12/20 21:49:34 by hkhalil           #+#    #+#              #
+#    Updated: 2021/12/20 21:50:01 by hkhalil          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap
 
 SRC = push_swap.c push_swap_utils.c
@@ -10,8 +22,10 @@ CFLAGS = -Wall -Wextra -Werror
 
 $(NAME): $(LIB) $(OBJ)
 	cc $(CFLAGS) $(OBJ) $(LIB) -o $(NAME)
+
 $(LIB):
 	make -C ./libft && make bonus -C ./libft
+
 all: $(NAME)
 
 clean:

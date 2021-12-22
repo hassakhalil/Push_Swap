@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2021/12/19 21:19:07 by hkhalil          ###   ########.fr       */
+/*   Updated: 2021/12/22 16:52:33 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,28 +41,20 @@ t_list  *indexation(int argc, char *argv[])
         else
             i++;
     }
-    //debug---------------------------
-    i = 0;
-    while (i < argc - 1)
+    j = 1;
+    while (argv[j])
     {
-        printf("+++++|%d|+++++\n", numbers[i]);
-        i++;
-    }
-    //end debug-----------------------
-    i = 0;
-    while (i < argc - 1)
-    {
-        j = 1;
-        while (argv[j])
+        i = 0;
+        while (i < argc - 1)
         {
-            if (numbers[i] == ft_atoi(argv[j]))
+            if (ft_atoi(argv[j]) == numbers[i])
             {
-                 ft_lstadd_back(&index_list,ft_lstnew(j - 1));
-                 break;
+                ft_lstadd_back(&index_list, ft_lstnew(i));
+                break;
             }
-            j++;
+            i++;
         }
-        i++;
+        j++;
     }
     free(numbers);
     return (index_list);
