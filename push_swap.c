@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/02 20:39:03 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/04 17:52:02 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@
 
 int main(int argc, char *argv[])
 {
-	t_list	*list = indexation(argc, argv);
-	while (list)
+	t_list	*stack_a = indexation(argc, argv);
+	while (stack_a)
 	{
-		printf("%d\n", list->content);
-		list = list->next;
+		printf("%d\n", stack_a->content);
+		stack_a = stack_a->next;
 	}
 }
