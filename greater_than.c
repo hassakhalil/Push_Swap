@@ -6,13 +6,16 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/04 18:30:36 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/04 19:41:08 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*greater_than(t_list *stack_a)
+char	*greater_than(t_list *stack_a, int agrc)
 {
-
+	while (argc - 1)
+	{
+		
+	}
 }
