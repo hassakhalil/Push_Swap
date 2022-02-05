@@ -6,13 +6,13 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:29:14 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/05 20:38:54 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/05 20:39:52 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*by_index(t_list *stack a, int argc)
+int	*by_index(t_list *stack a, int argc)
 {
 	t_list	*head;
 	int		i;
