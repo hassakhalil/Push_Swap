@@ -6,18 +6,19 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/05 20:39:39 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/05 20:54:13 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*greater_than(t_list *stack_a, int agrc)
+int	*greater_than(t_list *stack_a, int argc)
 {
 	t_list	*head;
 	int		i;
+	int		j;
 	int		*markup;
-	int		*markup_head;
+	t_list		*markup_head;
 
 	markup = malloc(sizeof(int *) * (argc - 1));
 	head = stack_a;
@@ -26,7 +27,7 @@ int	*greater_than(t_list *stack_a, int agrc)
 	j = 0;
 	while (markup_head)
 	{
-		while (arcg - 1)
+		while (argc - 1)
 		{
 			if (!stack_a)
 				stack_a = head;
@@ -36,7 +37,7 @@ int	*greater_than(t_list *stack_a, int agrc)
 				i++;
 			}
 			else
-				markup[argc - 1 - ft_lstsize(stack_a)] = ;
+				markup[argc - 1 - ft_lstsize(stack_a)] = 0;
 			stack_a = stack_a->next;
 			argc--;
 		}
