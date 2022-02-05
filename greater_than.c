@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/05 17:29:10 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/05 20:38:15 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,5 @@ char	*greater_than(t_list *stack_a, int agrc)
 		}
 		i = 0;
 	}
+	return (markup);
 }
