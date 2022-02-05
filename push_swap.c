@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/05 15:29:35 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/05 20:40:57 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int main(int argc, char *argv[])
 {
     t_list  *stack_a;
 	t_list	*stack_b;
-    char    *greater_than_markup;
-    char    *by_index_markup;
+    int	    *greater_than_markup;
+    int	    *by_index_markup;
 
 	/*preparing for soliving*/
     //indexation
