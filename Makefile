@@ -6,7 +6,7 @@
 #    By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 21:49:34 by hkhalil           #+#    #+#              #
-#    Updated: 2022/02/04 18:27:02 by hkhalil          ###   ########.fr        #
+#    Updated: 2022/02/08 22:17:45 by hkhalil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJ = $(SRC:.c=.o)
 CFLAGS = -Wall -Wextra -Werror
 
 $(NAME): $(LIB) $(OBJ)
-	cc $(CFLAGS) $(OBJ) $(LIB) -o $(NAME)
+	cc $(CFLAGS) -fsanitize=address $(OBJ) $(LIB) -o $(NAME)
 
 $(LIB):
 	make -C ./libft && make bonus -C ./libft
