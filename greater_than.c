@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/13 18:57:32 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/18 17:45:29 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int		*greater_than(t_list *stack_a, int argc)
 	t_list	*markup_head;
 	t_list	*head;
 	t_list	*tmp;
-	int		*i;
-	int		*j;
+	t_list	*hassan;
+	int		i;
+	int		j;
 	int		n;
 	int		*markup;
 
 	markup = malloc(sizeof(int *) * (argc - 1));
-	//choose markup head
 	markup_head = stack_a;
 	j = 0;
 	while (markup_head->next != stack_a)
@@ -46,7 +46,6 @@ int		*greater_than(t_list *stack_a, int argc)
 		markup_head = markup_head->next;
 	}
 	markup_head = tmp;
-	printf("this is it : %d\n", markup_head->content);
 	n = argc - 1;
 	markup[argc - 1 - ft_lstsize(tmp)] = 1;
 	while (n)
