@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/18 17:45:29 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/18 19:48:03 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int		*greater_than(t_list *stack_a, int argc)
 	t_list	*markup_head;
 	t_list	*head;
 	t_list	*tmp;
-	t_list	*hassan;
 	int		i;
 	int		j;
 	int		n;
 	int		*markup;
+	int		*tmp_markup;
 
 	markup = malloc(sizeof(int *) * (argc - 1));
 	markup_head = stack_a;
