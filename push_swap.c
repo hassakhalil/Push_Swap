@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/13 18:57:35 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/20 15:50:35 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	//testing
 	while (argc - 1 > i)
 	{
-		printf("%d\n", greater_than_markup[i]/* ,by_index_markup[i]*/);
+		printf("%d\n", greater_than_markup[i]);
 		i++;
 	}
     
