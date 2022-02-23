@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/23 18:31:35 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/23 21:25:56 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int		*greater_than(t_list *stack_a, int argc)
 		printf("%d || %d\n", i, markup_head->content);
 		markup_head = markup_head->next;
 	}
+	printf("+++%d++++\n", j);
 	markup_head = tmp;
 	n = argc - 1;
 	markup[ft_lstsize(stack_a) - ft_lstsize(tmp) + 1] = 1;
