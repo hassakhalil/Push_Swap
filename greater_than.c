@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/21 18:31:38 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/23 17:40:55 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ int		*greater_than(t_list *stack_a, int argc)
 			if (head1->content < head2->next->content)
 			{
 				i++;
-				head1 = head1->next;
 				head2 = head2->next;
+				head1 = head2;
 			}
 			else
 				head2 = head2->next;
@@ -55,13 +55,13 @@ int		*greater_than(t_list *stack_a, int argc)
 	}
 	markup_head = tmp;
 	n = argc - 1;
-	markup[argc - 1 - ft_lstsize(tmp)] = 1;
+	markup[ft_lstsize(stack_a) - ft_lstsize(tmp) + 1] = 1;
 	while (n)
 	{
 		if (markup_head->content < markup_head->next->content)
-			markup[argc - ft_lstsize(tmp)] = 1;
+			markup[ft_lstsize(stack_a) - ft_lstsize(tmp) + 1] = 1;
 		else
-			markup[argc - ft_lstsize(tmp)] = 0;
+			markup[ft_lstsize(stack_a) - ft_lstsize(tmp) + 1] = 0;
 		markup_head = markup_head->next;
 		n--;
 	}
