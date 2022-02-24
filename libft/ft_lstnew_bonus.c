@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 16:26:12 by hkhalil           #+#    #+#             */
-/*   Updated: 2021/11/14 22:43:14 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/24 15:45:16 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_list	*ft_lstnew(int content)
 	if (!lstnew)
 		return (0);
 	lstnew->content = content;
-	lstnew->next = NULL;
+	lstnew->index = 0;
+	lstnew->next = 0;
 	return (lstnew);
 }

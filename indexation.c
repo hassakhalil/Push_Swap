@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 19:58:12 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/04 17:53:33 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/24 15:54:17 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_list	*indexation(int argc, char *argv[])
 		{
 			if (ft_atoi(argv[j]) == numbers[i])
 			{
-				ft_lstadd_back(&stack_a, ft_lstnew(i));
+				ft_lstadd_back(&stack_a, ft_lstnew(i), j - 1);
 				break ;
 			}
 			i++;

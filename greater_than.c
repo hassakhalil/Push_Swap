@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/24 15:36:49 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/24 16:10:57 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,23 @@ int		*greater_than(t_list *stack_a, int argc)
 		j = i;
 		tmp = markup_head;
 	}
-	markup_head = tmp;
 	n = argc - 1;
-	markup[ft_lstsize(stack_a) - ft_lstsize(tmp) + 1] = 1;
+	markup[tmp->index] = 1;
+	head2 = tmp;
+	printf("%d\n", tmp->content);
 	while (n)
 	{
-		if (markup_head->content < markup_head->next->content)
-			markup[ft_lstsize(stack_a) - ft_lstsize(tmp) + 1] = 1;
+		if (tmp->content < head2->next->content)
+		{
+			markup[head2->index] = 1;
+			head2 = head2->next;
+			tmp = head2;
+		}
 		else
-			markup[ft_lstsize(stack_a) - ft_lstsize(tmp) + 1] = 0;
-		markup_head = markup_head->next;
+		{
+			markup[head2->index] = 0;
+			head2 = head2->next;
+		}
 		n--;
 	}
 	return (markup);
