@@ -6,13 +6,13 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/25 14:43:30 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/25 18:03:13 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		*greater_than(t_list *stack_a, int argc)
+char	*greater_than(t_list *stack_a, int argc)
 {
 	t_list	*markup_head;
 	t_list	*head1;
@@ -21,9 +21,9 @@ int		*greater_than(t_list *stack_a, int argc)
 	int		i;
 	int		j;
 	int		n;
-	int		*markup;
+	char	*markup;
 
-	markup = malloc(sizeof(int *) * (argc - 1));
+	markup = malloc(sizeof(char *) * argc);
 	markup_head = stack_a;
 	j = 0;
 	while (markup_head->next != stack_a && markup)
@@ -73,22 +73,23 @@ int		*greater_than(t_list *stack_a, int argc)
 		tmp = markup_head;
 	}
 	n = argc - 1;
-	markup[tmp->index] = 1;
 	head2 = tmp;
-	while (n)
+	markup[head2->index] = 49;
+	while (n - 1)
 	{
 		if (tmp->content < head2->next->content)
 		{
-			markup[head2->next->index] = 1;
+			markup[head2->next->index] = 49;
 			head2 = head2->next;
 			tmp = head2;
 		}
 		else
 		{
-			markup[head2->next->index] = 0;
+			markup[head2->next->index] = 48;
 			head2 = head2->next;
 		}
 		n--;
 	}
+	markup[argc - 1] = 0;
 	return (markup);
 }
