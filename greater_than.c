@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/24 16:27:23 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/25 14:43:30 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		*greater_than(t_list *stack_a, int argc)
 		tmp = markup_head;
 	}
 	n = argc - 1;
-	markup[tmp->next->index] = 6;
+	markup[tmp->index] = 1;
 	head2 = tmp;
 	while (n)
 	{
