@@ -6,13 +6,13 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/25 18:29:58 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/25 18:31:58 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list*	choosing_markup_head(t_list *stack_a, int argc)
+t_list	*choosing_markup_head(t_list *stack_a, int argc)
 {
 	t_list	*markup_head;
 	t_list	*tmp1;
