@@ -6,11 +6,12 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:29:14 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/26 15:14:15 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/26 15:30:52 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 int	ft_markup_head_helper(t_list *tmp, int argc)
 {
 	t_list	*tmp1;
@@ -22,7 +23,7 @@ int	ft_markup_head_helper(t_list *tmp, int argc)
 	tmp2 = tmp;
 	while (argc - 1)
 	{
-		if (tmp1->content == (tmp2->next->content) + 1)
+		if (tmp1->content + 1 == tmp2->next->content)
 		{
 			i++;
 			tmp2 = tmp2->next;
@@ -73,7 +74,7 @@ char	*by_index(t_list *stack_a, int argc)
 	markup[tmp->index] = 49;
 	while (argc - 2)
 	{
-		if (markup_head->content == (tmp->next->content) + 1)
+		if (markup_head->content + 1 == tmp->next->content)
 		{
 			markup[tmp->next->index] = 49;
 			tmp = tmp->next;
