@@ -6,48 +6,85 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:29:14 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/13 18:13:25 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/26 15:14:15 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	*by_index(t_list *stack_a, int argc)
+int	ft_markup_head_helper(t_list *tmp, int argc)
 {
-	t_list	*head;
+	t_list	*tmp1;
+	t_list	*tmp2;
 	int		i;
-	int		j;
-	int		*markup;
-	t_list		*markup_head;
 
-	markup = malloc(sizeof(int *) * (argc - 1));
-	head = stack_a;
-	markup_head = stack_a;
 	i = 0;
-	j = 0;
-	while (markup_head)
+	tmp1 = tmp;
+	tmp2 = tmp;
+	while (argc - 1)
 	{
-		while (argc - 1)
+		if (tmp1->content == (tmp2->next->content) + 1)
 		{
-			if (!stack_a)
-				stack_a = head;
-			if (stack_a->content == (stack_a->next)->content + 1)
-			{
-				markup[argc - 1 - ft_lstsize(stack_a)] = 1;
-				i++;
-			}
-			else
-				markup[argc - 1 - ft_lstsize(stack_a)] = 0;
-			stack_a = stack_a->next;
-			argc--;
+			i++;
+			tmp2 = tmp2->next;
+			tmp1 = tmp2;
 		}
+		else
+			tmp2 = tmp2->next;
+		argc--;
+	}
+	return (i);
+}
+
+t_list	*ft_markup_head(t_list *stack_a, int argc)
+{
+	t_list	*markup_head;
+	t_list	*tmp;
+	int		flag;
+	int		j;
+	int		i;
+
+	tmp = stack_a;
+	j = 0;
+	flag = 0;
+	while (tmp != stack_a || !flag)
+	{
+		flag = 1;
+		i = ft_markup_head_helper(tmp, argc);
 		if (j < i)
 		{
 			j = i;
-			markup_head = markup_head->next;
-			stack_a = markup_head;
+			markup_head = tmp;
 		}
-		i = 0;
+		tmp = tmp->next;
+	}
+	return (markup_head);
+}
+
+char	*by_index(t_list *stack_a, int argc)
+{
+	t_list	*markup_head;
+	t_list	*tmp;
+	char	*markup;
+
+	markup = malloc(sizeof(char *) * argc);
+	markup_head = ft_markup_head(stack_a, argc);
+	tmp = markup_head;
+	markup[argc - 1] = 0;
+	markup[tmp->index] = 49;
+	while (argc - 2)
+	{
+		if (markup_head->content == (tmp->next->content) + 1)
+		{
+			markup[tmp->next->index] = 49;
+			tmp = tmp->next;
+			markup_head = tmp;
+		}
+		else
+		{
+			markup[tmp->next->index] = 48;
+			tmp = tmp->next;
+		}
+		argc--;
 	}
 	return (markup);
 }
