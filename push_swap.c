@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/26 18:11:42 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/26 18:33:44 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
 	by_index_markup = by_index(stack_a, argc);
 	//testing
 	//swap(stack_a);
+	rotate(&stack_a, 1);
 	while (argc - 1 > i)
 	{
 		printf("%d\n", stack_a->content);
