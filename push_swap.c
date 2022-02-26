@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/26 15:08:55 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/26 18:11:42 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,11 @@ int main(int argc, char *argv[])
     greater_than_markup = greater_than(stack_a, argc);
 	by_index_markup = by_index(stack_a, argc);
 	//testing
-	while (greater_than_markup[i])
+	//swap(stack_a);
+	while (argc - 1 > i)
 	{
-		printf("%c\n", greater_than_markup[i]);
-		i++;
-	}
-	printf("--------------------------\n");
-	i = 0;
-	while (by_index_markup[i])
-	{
-		printf("%c\n", by_index_markup[i]);
+		printf("%d\n", stack_a->content);
+		stack_a = stack_a->next;
 		i++;
 	}
     /*form stack A to stack B*/

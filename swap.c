@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/12 16:15:44 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/26 18:05:23 by hkhalil          ###   ########.fr       */
+/*   Created: 2022/02/26 17:41:28 by hkhalil           #+#    #+#             */
+/*   Updated: 2022/02/26 18:11:15 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "push_swap.h"
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "./libft/libft.h"
-t_list  *indexation(int argc, char *argv[]);
-char	*greater_than(t_list *stack_a, int argc);
-char	*by_index(t_list *stack_a, int argc);
-void	swap(t_list *stack);
-void	push(t_list *stack_x, t_list *stack_y);
-void	rotate(t_list *stack, int direction);
-#endif
+void	swap(t_list *stack)
+{
+	int		tmp;
+
+	tmp = stack->next->content;
+	stack->next->content = stack->content;
+	stack->content = tmp;
+}
