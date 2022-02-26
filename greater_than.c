@@ -6,22 +6,43 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/26 14:34:54 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/26 14:53:48 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*choosing_markup_head(t_list *stack_a, int argc)
+int	choose_markup_head_helper(t_list *tmp, int argc)
 {
-	t_list	*markup_head;
 	t_list	*tmp1;
 	t_list	*tmp2;
+	int		i;
+
+	i = 0;
+	tmp1 = tmp;
+	tmp2 = tmp;
+	while (argc - 1)
+	{
+		if (tmp1->content < tmp2->next->content)
+		{
+			i++;
+			tmp2 = tmp2->next;
+			tmp1 = tmp2;
+		}
+		else
+			tmp2 = tmp2->next;
+		argc--;
+	}
+	return (i);
+}
+
+t_list	*choose_markup_head(t_list *stack_a, int argc)
+{
+	t_list	*markup_head;
 	t_list	*tmp;
 	int		flag;
-	int		i;
 	int		j;
-	int		n;
+	int		i;
 
 	tmp = stack_a;
 	j = 0;
@@ -29,22 +50,7 @@ t_list	*choosing_markup_head(t_list *stack_a, int argc)
 	while (tmp != stack_a || !flag)
 	{
 		flag = 1;
-		i = 0;
-		n = argc - 1;
-		tmp1 = tmp;
-		tmp2 = tmp;
-		while (n)
-		{
-			if (tmp1->content < tmp2->next->content)
-			{
-				i++;
-				tmp2 = tmp2->next;
-				tmp1 = tmp2;
-			}
-			else
-				tmp2 = tmp2->next;
-			n--;
-		}
+		i = choose_markup_head_helper(tmp, argc);
 		if (j < i)
 		{
 			j = i;
@@ -62,7 +68,7 @@ char	*greater_than(t_list *stack_a, int argc)
 	char	*markup;
 
 	markup = malloc(sizeof(char *) * argc);
-	markup_head = choosing_markup_head(stack_a, argc);
+	markup_head = choose_markup_head(stack_a, argc);
 	tmp = markup_head;
 	markup[argc - 1] = 0;
 	markup[tmp->index] = 49;
