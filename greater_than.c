@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/25 18:40:49 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/02/26 14:34:54 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,14 @@ char	*greater_than(t_list *stack_a, int argc)
 {
 	t_list	*markup_head;
 	t_list	*tmp;
-	int		n;
 	char	*markup;
 
 	markup = malloc(sizeof(char *) * argc);
 	markup_head = choosing_markup_head(stack_a, argc);
-	n = argc - 2;
 	tmp = markup_head;
+	markup[argc - 1] = 0;
 	markup[tmp->index] = 49;
-	while (n)
+	while (argc - 2)
 	{
 		if (markup_head->content < tmp->next->content)
 		{
@@ -80,8 +79,7 @@ char	*greater_than(t_list *stack_a, int argc)
 			markup[tmp->next->index] = 48;
 			tmp = tmp->next;
 		}
-		n--;
+		argc--;
 	}
-	markup[argc - 1] = 0;
 	return (markup);
 }
