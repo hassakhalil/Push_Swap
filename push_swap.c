@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/02/28 20:34:56 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/06 03:23:59 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int main(int argc, char *argv[])
 	t_list	*stack_b;
     char	*greater_than_markup;
     char	*by_index_markup;
-	int i = 0;
+	//int i = 0;
+	//t_list	*tmp;
+	//t_list	*tmp1;
 
 	/*preparing for soliving*/
     //indexation
@@ -32,14 +34,17 @@ int main(int argc, char *argv[])
 	//swap(stack_a);
 	//rotate(&stack_a, 0);
 	push(&stack_a, &stack_b);
-	while (argc - 1 > i)
+	printf("%d\n", stack_a->content);
+	printf("%d\n", stack_a->content);
+	/*tmp = stack_a;
+	tmp1 = tmp;
+	while (tmp1->next != tmp)
 	{
-		printf("----%d\n", stack_a->content);
-		stack_a = stack_a->next;
-		i++;
-	}
+		printf("----%d\n", tmp1->content);
+		tmp1 = tmp1->next;
+	}*/
 	printf("stack_b = %d\n", stack_b->content);
-	printf("stack_b = %d\n", stack_b->next->content);
+	printf("%d\n", stack_a->content);
     /*form stack A to stack B*/
 
 	/*from stack B to stack A*/
