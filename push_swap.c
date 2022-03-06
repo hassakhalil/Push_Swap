@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/06 03:23:59 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/06 06:14:33 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     char	*greater_than_markup;
     char	*by_index_markup;
 	//int i = 0;
-	//t_list	*tmp;
+	t_list	*tmp;
 	//t_list	*tmp1;
 
 	/*preparing for soliving*/
@@ -34,17 +34,23 @@ int main(int argc, char *argv[])
 	//swap(stack_a);
 	//rotate(&stack_a, 0);
 	push(&stack_a, &stack_b);
-	printf("%d\n", stack_a->content);
-	printf("%d\n", stack_a->content);
-	/*tmp = stack_a;
-	tmp1 = tmp;
-	while (tmp1->next != tmp)
+	push(&stack_a, &stack_b);
+	push(&stack_a, &stack_b);
+	tmp = stack_a;
+	while (tmp->next != stack_a)
 	{
-		printf("----%d\n", tmp1->content);
-		tmp1 = tmp1->next;
-	}*/
-	printf("stack_b = %d\n", stack_b->content);
-	printf("%d\n", stack_a->content);
+		printf("----%d\n", tmp->content);
+		tmp = tmp->next;
+	}
+	printf("----%d\n", tmp->content);
+
+	tmp = stack_b;
+	while (tmp->next != stack_b)
+	{
+		printf("++++%d\n", tmp->content);
+		tmp = tmp->next;
+	}
+	printf("++++%d\n", tmp->content);
     /*form stack A to stack B*/
 
 	/*from stack B to stack A*/
