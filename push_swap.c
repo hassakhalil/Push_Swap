@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/06 15:52:14 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/10 21:46:32 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     //indexation
     stack_a = indexation(argc, argv);
     /*form stack A to stack B*/
-	a_to_b(&stack_a, &stack_b);
+	a_to_b(&stack_a, &stack_b, /*markup mode*/);
 	/*from stack B to stack A*/
 
 	/*align stack A*/
