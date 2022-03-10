@@ -6,13 +6,13 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 14:16:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/06 15:53:33 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/10 21:32:30 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	a_to_b(t_list **stack_a, t_list **stack_b)
+void	a_to_b(t_list **stack_a, t_list **stack_b, int markup_mode)
 {
 	char	*greater_than_markup;
 	char	*by_index_markup;
@@ -21,7 +21,7 @@ void	a_to_b(t_list **stack_a, t_list **stack_b)
 	by_index_markup = by_index(stack_a, /*size*/);
 	while (/*stack_a has "false"*/)
 	{
-		if (check_swap(stack_a))
+		if (check_swap(stack_a, markup_mode))
 		{
 			swap(*stack_a);
 			/*update markup*/
