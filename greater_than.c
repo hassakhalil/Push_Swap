@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/10 21:43:51 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/12 21:08:25 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,33 +61,29 @@ t_list	*choose_markup_head(t_list *stack_a, int size)
 	return (markup_head);
 }
 
-char	*greater_than(t_list *stack_a)
+void	greater_than(t_list **stack_a)
 {
 	t_list	*markup_head;
-	t_list	*tmp;
-	char	*markup;
 	int 	size;
 
-	size = ft_lstsize(stack_a);
-	markup = malloc(sizeof(char *) * size);
-	markup_head = choose_markup_head(stack_a, size);
-	tmp = markup_head;
-	markup[size] = 0;
-	markup[tmp->index] = 49;
+	size = ft_lstsize(*stack_a);
+	markup_head = choose_markup_head(*stack_a, size);
+	(*stack_a) = markup_head;
+	(*stack_a)->markup = 1;
 	while (size - 1)
 	{
-		if (markup_head->content < tmp->next->content)
+		if (markup_head->content < (*stack_a)->next->content)
 		{
-			markup[tmp->next->index] = 49;
-			tmp = tmp->next;
-			markup_head = tmp;
+			(*stack_a)->next->markup = 1;
+			(*stack_a) = (*stack_a)->next;
+			markup_head = (*stack_a);
 		}
 		else
 		{
-			markup[tmp->next->index] = 48;
-			tmp = tmp->next;
+			(*stack_a)->next->markup = 0;
+			(*stack_a) = (*stack_a)->next;
 		}
 		size--;
 	}
-	return (markup);
+	(*stack_a) =(*stack_a)->next;
 }

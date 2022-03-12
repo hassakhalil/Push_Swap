@@ -6,13 +6,13 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:51:36 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/12 16:32:33 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/12 20:33:42 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_swap(t_list *stack, int markup_mode, char *markup)
+int	check_swap(t_list *stack, int markup_mode)
 {
 	int		i;
 	int		j;
@@ -28,9 +28,9 @@ int	check_swap(t_list *stack, int markup_mode, char *markup)
 	}
 	swap(stack);
 	if (!markup_mode)
-		markup = greater_than(stack);
+		greater_than(stack);
 	else
-		markup = by_index(stack);
+		by_index(stack);
 	i = 0;
 	k = 0;
 	while (markup[i])
