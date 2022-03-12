@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:15:44 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/12 20:37:34 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/12 22:31:58 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 #include <stdio.h>
 #include "./libft/libft.h"
 t_list  *indexation(int argc, char *argv[]);
-void	greater_than(t_list **stack_a);
-void	by_index(t_list **stack_a);
+void	markup(t_list **stack_a, int makrup_mode);
 void	swap(t_list *stack);
 void	push(t_list **stack_x, t_list **stack_y);
 void	rotate(t_list **stack, int direction);
