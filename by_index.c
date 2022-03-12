@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:29:14 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/12 21:10:49 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/12 21:29:16 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,14 @@ void	by_index(t_list **stack_a)
 	{
 		if (markup_head->content + 1 == (*stack_a)->next->content)
 		{
-			(*stack_a)->next->markup = 1;
 			(*stack_a) = (*stack_a)->next;
+			(*stack_a)->markup = 1;
 			markup_head = (*stack_a);
 		}
 		else
 		{
-			(*stack_a)->next->markup = 0;
 			(*stack_a) = (*stack_a)->next;
+			(*stack_a)->markup = 0;
 		}
 		size--;
 	}
