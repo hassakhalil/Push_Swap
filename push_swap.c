@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/12 21:11:01 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/12 21:17:40 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     //indexation
     stack_a = indexation(argc, argv);
     /*form stack A to stack B*/
-	by_index(&stack_a);
+	greater_than(&stack_a);
 	tmp = stack_a;
 	while (tmp->next != stack_a)
 	{

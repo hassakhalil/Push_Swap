@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/12 21:08:25 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/12 21:20:05 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,14 @@ void	greater_than(t_list **stack_a)
 	{
 		if (markup_head->content < (*stack_a)->next->content)
 		{
-			(*stack_a)->next->markup = 1;
 			(*stack_a) = (*stack_a)->next;
+			(*stack_a)->markup = 1;
 			markup_head = (*stack_a);
 		}
 		else
 		{
-			(*stack_a)->next->markup = 0;
 			(*stack_a) = (*stack_a)->next;
+			(*stack_a)->markup = 0;
 		}
 		size--;
 	}
