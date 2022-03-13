@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/12 22:53:51 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/13 00:41:43 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_markup(int x, int y, int markup_mode)
 	return (0);
 }
 
-int	choose_markup_head_helper(t_list *tmp, int size, int markup_mode)
+int	markup_head_helper(t_list *tmp, int size, int markup_mode)
 {
 	t_list	*tmp1;
 	t_list	*tmp2;
@@ -49,7 +49,7 @@ int	choose_markup_head_helper(t_list *tmp, int size, int markup_mode)
 	return (i);
 }
 
-t_list	*choose_markup_head(t_list *stack_a, int size, int markup_mode)
+t_list	*markup_head(t_list *stack_a, int size, int markup_mode)
 {
 	t_list	*markup_head;
 	t_list	*tmp;
@@ -63,7 +63,7 @@ t_list	*choose_markup_head(t_list *stack_a, int size, int markup_mode)
 	while (tmp != stack_a || !flag)
 	{
 		flag = 1;
-		i = choose_markup_head_helper(tmp, size, markup_mode);
+		i = markup_head_helper(tmp, size, markup_mode);
 		if (j < i)
 		{
 			j = i;
@@ -76,20 +76,20 @@ t_list	*choose_markup_head(t_list *stack_a, int size, int markup_mode)
 
 void	markup(t_list **stack_a, int markup_mode)
 {
-	t_list	*markup_head;
+	t_list	*markup_h;
 	int 	size;
 
 	size = ft_lstsize(*stack_a);
-	markup_head = choose_markup_head(*stack_a, size, markup_mode);
-	(*stack_a) = markup_head;
+	markup_h = markup_head(*stack_a, size, markup_mode);
+	(*stack_a) = markup_h;
 	(*stack_a)->markup = 1;
 	while (size - 1)
 	{
-		if (check_markup(markup_head->content, (*stack_a)->next->content, markup_mode))
+		if (check_markup(markup_h->content, (*stack_a)->next->content, markup_mode))
 		{
 			(*stack_a) = (*stack_a)->next;
 			(*stack_a)->markup = 1;
-			markup_head = (*stack_a);
+			markup_h = (*stack_a);
 		}
 		else
 		{
@@ -98,5 +98,6 @@ void	markup(t_list **stack_a, int markup_mode)
 		}
 		size--;
 	}
-	(*stack_a) = (*stack_a)->next;
+	if (!markup_mode)
+		(*stack_a) = (*stack_a)->next;
 }
