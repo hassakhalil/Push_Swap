@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/13 00:41:43 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/15 18:07:49 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,5 @@ void	markup(t_list **stack_a, int markup_mode)
 		}
 		size--;
 	}
-	if (!markup_mode)
-		(*stack_a) = (*stack_a)->next;
+	(*stack_a) = (*stack_a)->next;
 }
