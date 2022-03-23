@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/15 18:07:49 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/23 20:53:59 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ t_list	*markup_head(t_list *stack_a, int size, int markup_mode)
 void	markup(t_list **stack_a, int markup_mode)
 {
 	t_list	*markup_h;
-	int 	size;
+	int		size;
 
 	size = ft_lstsize(*stack_a);
 	markup_h = markup_head(*stack_a, size, markup_mode);
@@ -85,7 +85,8 @@ void	markup(t_list **stack_a, int markup_mode)
 	(*stack_a)->markup = 1;
 	while (size - 1)
 	{
-		if (check_markup(markup_h->content, (*stack_a)->next->content, markup_mode))
+		if (check_markup(markup_h->content,
+				(*stack_a)->next->content, markup_mode))
 		{
 			(*stack_a) = (*stack_a)->next;
 			(*stack_a)->markup = 1;
