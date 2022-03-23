@@ -6,40 +6,42 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:51:36 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/14 23:26:17 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/23 19:32:15 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_swap(t_list *stack, int markup_mode)
+int	check_swap(t_list **stack, int markup_mode)
 {
 	int		j;
 	int		k;
-	t_list	*tmp;
+	t_list	*head;
 
 	j = 0;
-	tmp = stack;
-	while (tmp->next != stack)
+	head = *stack;
+	while ((*stack)->next != head)
 	{
-		if (tmp->markup == 1)
+		if ((*stack)->markup == 1)
 			j++;
-		tmp = tmp->next;
+		(*stack) = (*stack)->next;
 	}
-	if (tmp->markup == 1)
+	if ((*stack)->markup == 1)
 		j++;
+	(*stack) = (*stack)->next;
 	swap(stack);
-	markup(&stack, markup_mode);
+	markup(stack, markup_mode);
 	k = 0;
-	tmp = stack;
-	while (tmp->next != stack)
+	while ((*stack)->next != head)
 	{
-		if (tmp->markup == 1)
+		if ((*stack)->markup == 1)
 			k++;
-		tmp = tmp->next;
+		(*stack) = (*stack)->next;
 	}
-	if (tmp->markup == 1)
+	if ((*stack)->markup == 1)
 		k++;
+	(*stack) = (*stack)->next;
+	swap(stack);
 	if (k > j)
 		return (1);
 	return (0);
