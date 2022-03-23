@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 14:16:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/23 20:22:22 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/23 20:24:48 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	check_zero(t_list *stack)
 		return (1);
 	return (0);
 }
+
 void	a_to_b(t_list **stack_a, t_list **stack_b, int markup_mode)
 {
 	markup(stack_a, markup_mode);
@@ -42,4 +43,4 @@ void	a_to_b(t_list **stack_a, t_list **stack_b, int markup_mode)
 		else
 			rotate(stack_a, 0);
 	}
-} 
+}
