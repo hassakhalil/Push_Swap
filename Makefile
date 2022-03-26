@@ -6,13 +6,13 @@
 #    By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 21:49:34 by hkhalil           #+#    #+#              #
-#    Updated: 2022/03/13 00:55:37 by hkhalil          ###   ########.fr        #
+#    Updated: 2022/03/26 16:03:26 by hkhalil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRC = push_swap.c push_swap_utils.c indexation.c markup.c  swap.c push.c rotate.c a_to_b.c check_swap.c
+SRC = push_swap.c push_swap_utils.c indexation.c markup.c  swap.c push.c rotate.c a_to_b.c check_swap.c b_to_a.c
 
 LIB = ./libft/libft.a
 
