@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 15:07:40 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/26 16:02:52 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/26 17:22:20 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,31 @@
 int	choose_mover(t_list **stack_a, t_list **stack_b, int markup_mode)
 {
 	t_list	*tmp;
+	t_list	*head;
 	int		index;
+	int		i;
 
+	i = 0;
 	tmp = *stack_b;
 	index = tmp->content;
 	while (tmp->next != *stack_b)
 	{
 		//calculate how many moves
-		//from current positionv to top of b
+		//from current position to top of b
+		i = 0;
+		head = tmp;
+		while (head->next != (*stack_b))
+		{
+			i++;
+			head = head->next;
+		}
 		//+ preparing the right element for receiving from b
+		if (i > k)
+		{
+			k = i;
+			index = tmp->content;
+		}
+		tmp = tmp->next;
 	}
 	//do the same steps for the last element
 	return (index);
