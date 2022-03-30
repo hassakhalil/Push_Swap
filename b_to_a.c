@@ -6,18 +6,19 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 15:07:40 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/30 03:01:28 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/30 22:07:11 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	choose_mover(t_list **stack_a, t_list **stack_b, int markup_mode)
+int	choose_mover(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 	t_list	*head;
 	int		index;
 	int		i;
+	int		k;
 
 	i = 0;
 	tmp = *stack_b;
@@ -34,7 +35,7 @@ int	choose_mover(t_list **stack_a, t_list **stack_b, int markup_mode)
 			head = head->next;
 		}
 		head = *stack_a;
-		while (head->next  != (*stack_a))
+		while (head  < tmp)
 		{
 			i++;
 			head = head->next;
@@ -48,6 +49,24 @@ int	choose_mover(t_list **stack_a, t_list **stack_b, int markup_mode)
 		tmp = tmp->next;
 	}
 	//do the same steps for the last element
+	i = 0;
+	head = tmp;
+	while (head->next != (*stack_b))
+	{
+		i++;
+		head = head->next;
+	}
+	head = *stack_a;
+	while (head  < tmp)
+	{
+		i++;
+		head = head->next;
+	}
+	if (i > k)
+	{
+		k = i;
+		index = tmp->content;
+	}
 	return (index);
 }
 
@@ -61,13 +80,14 @@ void	move(t_list **stack_a, t_list **stack_b, int index)
 		(*stack_a) = (*stack_a)->next;
 }
 
-void	b_to_a(t_list **stack_a, t_list **stack_b, int markup_mode)
+void	b_to_a(t_list **stack_a, t_list **stack_b)
 {
+	int	index;
 
 	while (ft_lstsize(*stack_b))
 	{
-		choose_mover(stack_a, stack_b, markup_mode);
+		index = choose_mover(stack_a, stack_b);
 		move(stack_a, stack_b, index);
-		push(stack_b, stack_a, markup_mode);
+		push(stack_b, stack_a);
 	}
 }

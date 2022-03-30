@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:15:44 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/26 15:47:40 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/30 22:07:22 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	push(t_list **stack_x, t_list **stack_y);
 void	rotate(t_list **stack, int direction);
 void	a_to_b(t_list **stack_a, t_list	**stack_b, int markup_mode);
 int		check_swap(t_list **stack, int markup_mode);
-void	b_to_a(t_list **stack_a, t_list **stack_b, int markup_mode);
+void	b_to_a(t_list **stack_a, t_list **stack_b);
 #endif
