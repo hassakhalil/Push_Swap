@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 15:07:40 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/26 17:22:20 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/03/30 03:01:28 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ int	choose_mover(t_list **stack_a, t_list **stack_b, int markup_mode)
 		i = 0;
 		head = tmp;
 		while (head->next != (*stack_b))
+		{
+			i++;
+			head = head->next;
+		}
+		head = *stack_a;
+		while (head->next  != (*stack_a))
 		{
 			i++;
 			head = head->next;
