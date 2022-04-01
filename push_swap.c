@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/30 22:08:18 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/01 01:13:12 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     /*form stack A to stack B*/
 	a_to_b(&stack_a, &stack_b, markup_mode);
 	/*from stack B to stack A*/
-
+	b_to_a(&stack_a, &stack_b);
 	/*align stack A*/
     
 
