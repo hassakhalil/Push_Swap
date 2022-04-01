@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 15:07:40 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/01 01:12:08 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/01 01:25:01 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 			head = head->next;
 		}
 		head = *stack_a;
-		while (head < tmp)
+		while (head->content < tmp->content)
 		{
 			i++;
 			head = head->next;
@@ -53,7 +53,7 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 		head = head->next;
 	}
 	head = *stack_a;
-	while (head < tmp)
+	while (head->content < tmp->content)
 	{
 		i++;
 		head = head->next;
@@ -77,11 +77,14 @@ void	move(t_list **stack_a, t_list **stack_b, int index)
 void	b_to_a(t_list **stack_a, t_list **stack_b)
 {
 	int	index;
+	int	n;
 
-	while (ft_lstsize(*stack_b))
+	n = ft_lstsize(*stack_b);
+	while (n)
 	{
 		index = choose_mover(stack_a, stack_b);
 		move(stack_a, stack_b, index);
 		push(stack_b, stack_a);
+		n--;
 	}
 }

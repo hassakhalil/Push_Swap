@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/01 01:13:12 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/01 01:26:57 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,20 @@ int main(int argc, char *argv[])
     t_list  *stack_a;
 	t_list	*stack_b;
 	int		markup_mode = 0;
-	//t_list	*tmp;
+	t_list	*tmp;
 
-    //indexation
     stack_a = indexation(argc, argv);
-    /*form stack A to stack B*/
 	a_to_b(&stack_a, &stack_b, markup_mode);
-	/*from stack B to stack A*/
 	b_to_a(&stack_a, &stack_b);
-	/*align stack A*/
-    
+	tmp = stack_a;
+	while (tmp->next != stack_a)
+	{
+		printf("%d\n", tmp->content);
+		tmp = tmp->next;
+	}
+
+		printf("%d\n", tmp->content);
+	/*align stack A*/ 
 
 	/*perfome algo with both markups compare and dispay better result*/
     return (0);
