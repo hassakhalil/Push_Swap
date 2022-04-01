@@ -6,11 +6,30 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 15:07:40 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/01 01:25:01 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/01 23:20:52 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	prepare_stack_a(t_list **stack_a,int l)
+{
+	t_list	*head;
+	int		index;
+
+	head = *stack_a;
+	index = head->content;
+	while (head->next != *stack_a)
+	{
+		if (head->content > l && head->content < index)
+			index = head->content;
+		head = head->next;
+	}
+	if (head->content > l && head->content < index)
+		index = head->content;
+	head = head->next;
+	return (index);
+}
 
 int	choose_mover(t_list **stack_a, t_list **stack_b)
 {
@@ -19,6 +38,7 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 	int		index;
 	int		i;
 	int		k;
+	int		l;
 
 	i = 0;
 	tmp = *stack_b;
@@ -32,8 +52,11 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 			i++;
 			head = head->next;
 		}
+	//	if (i)
+	//		i++;
+		l = prepare_stack_a(stack_a, tmp->content);
 		head = *stack_a;
-		while (head->content < tmp->content)
+		while (head->content != l)
 		{
 			i++;
 			head = head->next;
@@ -52,8 +75,12 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 		i++;
 		head = head->next;
 	}
+	//if (i)
+	//	i++;
+	///
+	l = prepare_stack_a(stack_a, tmp->content);
 	head = *stack_a;
-	while (head->content < tmp->content)
+	while (head->content != l)
 	{
 		i++;
 		head = head->next;
@@ -68,9 +95,11 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 
 void	move(t_list **stack_a, t_list **stack_b, int index)
 {
+	int	l;
 	while ((*stack_b)->content != index)
 		(*stack_b) = (*stack_b)->next;
-	while (index > (*stack_a)->next->content)
+	l = prepare_stack_a(stack_a, index);
+	while ((*stack_a)->content != l)
 		(*stack_a) = (*stack_a)->next;
 }
 
