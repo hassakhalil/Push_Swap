@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 14:16:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/02 02:10:19 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/02 02:13:08 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	check_zero(t_list *stack)
 		return (1);
 	return (0);
 }
+
 int	check_swap(t_list **stack, int markup_mode)
 {
 	int		j;
