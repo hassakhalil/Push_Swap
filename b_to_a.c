@@ -6,13 +6,13 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 15:07:40 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/02 00:37:11 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/02 01:22:51 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	prepare_stack_a(t_list **stack_a,int l)
+int	prepare_stack_a(t_list **stack_a, int l)
 {
 	t_list	*head;
 	int		index;
@@ -40,20 +40,17 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 	int		k;
 	int		l;
 
-	i = 0;
 	tmp = *stack_b;
 	index = tmp->content;
 	while (tmp->next != *stack_b)
 	{
-		i = 0;
+		i = 1;
 		head = tmp;
 		while (head->next != (*stack_b))
 		{
 			i++;
 			head = head->next;
 		}
-	//	if (i)
-	//		i++;
 		l = prepare_stack_a(stack_a, tmp->content);
 		head = *stack_a;
 		while (head->content != l)
@@ -68,16 +65,13 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 		}
 		tmp = tmp->next;
 	}
-	i = 0;
+	i = 1;
 	head = tmp;
 	while (head->next != (*stack_b))
 	{
 		i++;
 		head = head->next;
 	}
-	//if (i)
-	//	i++;
-	///
 	l = prepare_stack_a(stack_a, tmp->content);
 	head = *stack_a;
 	while (head->content != l)
@@ -96,6 +90,7 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 void	move(t_list **stack_a, t_list **stack_b, int index)
 {
 	int	l;
+
 	while ((*stack_b)->content != index)
 		(*stack_b) = (*stack_b)->next;
 	l = prepare_stack_a(stack_a, index);
