@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:51:36 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/01 01:16:20 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/02 01:37:16 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 int	check_swap(t_list **stack, int markup_mode)
 {
-	int		j = 0;
-	int		k = 0;
+	int		j;
+	int		k;
 	t_list	*head;
 
 	head = *stack;
+	j = 0;
+	k = 0;
 	while ((*stack)->next != head)
 	{
-		if ((*stack)->markup ==1)
+		if ((*stack)->markup == 1)
 			j++;
 		(*stack) = (*stack)->next;
 	}
@@ -32,7 +34,7 @@ int	check_swap(t_list **stack, int markup_mode)
 	markup(stack, markup_mode);
 	while ((*stack)->next != head)
 	{
-		if ((*stack)->markup ==1)
+		if ((*stack)->markup == 1)
 			k++;
 		(*stack) = (*stack)->next;
 	}
