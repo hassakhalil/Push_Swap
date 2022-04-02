@@ -6,7 +6,7 @@
 #    By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 21:49:34 by hkhalil           #+#    #+#              #
-#    Updated: 2022/04/02 00:48:29 by hkhalil          ###   ########.fr        #
+#    Updated: 2022/04/02 01:08:21 by hkhalil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJ = $(SRC:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror
 
-$(NAME): $(LIB) $(OBJ)
+$(NAME): $(OBJ)
 	cc $(CFLAGS) -fsanitize=address $(OBJ) -o $(NAME)
 
 all: $(NAME)
