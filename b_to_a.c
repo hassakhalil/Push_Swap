@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 15:07:40 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/02 12:08:27 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/03 21:30:34 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	prepare_stack_a(t_list **stack_a, int l)
 int	choose_mover(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
-	t_list	*head;
 	t_list	*stack;
 	int		index;
 	int		i;
@@ -43,28 +42,29 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 	int		flag;
 
 	flag = 0;
+	k = 10000000;
 	tmp = *stack_b;
 	index = tmp->content;
 	while (tmp != *stack_b || !flag)
 	{
 		flag = 1;
 		i = 0;
-		stack = *stack_b;
-		head = tmp;
-		while (stack != head)
+		//you have to fixe tthis
+		stack = tmp;
+		while (stack != *stack_b)
 		{
 			i++;
 			stack = stack->next;
 		}
 
 		l = prepare_stack_a(stack_a, tmp->content);
-		head = *stack_a;
-		while (head->content != l)
+		stack = *stack_a;
+		while (stack->content != l)
 		{
 			i++;
-			head = head->next;
+			stack = stack->next;
 		}
-		if (i > k)
+		if (i < k)
 		{
 			k = i;
 			index = tmp->content;
