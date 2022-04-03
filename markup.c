@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/03/23 20:53:59 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/02 09:32:20 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_markup(int x, int y, int markup_mode)
 {
-	if (!markup_mode)
+	if (markup_mode == 0)
 	{
 		if (x < y)
 			return (1);
@@ -33,14 +33,14 @@ int	markup_head_helper(t_list *tmp, int size, int markup_mode)
 
 	i = 0;
 	tmp1 = tmp;
-	tmp2 = tmp;
+	tmp2 = tmp->next;
 	while (size)
 	{
-		if (check_markup(tmp1->content, tmp2->next->content, markup_mode))
+		if (check_markup(tmp1->content, tmp2->content, markup_mode))
 		{
 			i++;
-			tmp2 = tmp2->next;
 			tmp1 = tmp2;
+			tmp2 = tmp2->next;
 		}
 		else
 			tmp2 = tmp2->next;
@@ -58,6 +58,7 @@ t_list	*markup_head(t_list *stack_a, int size, int markup_mode)
 	int		i;
 
 	tmp = stack_a;
+	markup_head = stack_a;
 	j = 0;
 	flag = 0;
 	while (tmp != stack_a || !flag)
@@ -77,27 +78,33 @@ t_list	*markup_head(t_list *stack_a, int size, int markup_mode)
 void	markup(t_list **stack_a, int markup_mode)
 {
 	t_list	*markup_h;
+	t_list	*head;
 	int		size;
 
+	head = *stack_a;
 	size = ft_lstsize(*stack_a);
 	markup_h = markup_head(*stack_a, size, markup_mode);
-	(*stack_a) = markup_h;
+	while ((*stack_a)->content != markup_h->content)
+		(*stack_a) = (*stack_a)->next;
 	(*stack_a)->markup = 1;
+	markup_h = *stack_a;
+	(*stack_a) = (*stack_a)->next;
 	while (size - 1)
 	{
 		if (check_markup(markup_h->content,
-				(*stack_a)->next->content, markup_mode))
+				(*stack_a)->content, markup_mode))
 		{
-			(*stack_a) = (*stack_a)->next;
+			markup_h = *stack_a;
 			(*stack_a)->markup = 1;
-			markup_h = (*stack_a);
+			(*stack_a) = (*stack_a)->next;
 		}
 		else
 		{
-			(*stack_a) = (*stack_a)->next;
 			(*stack_a)->markup = 0;
+			(*stack_a) = (*stack_a)->next;
 		}
 		size--;
 	}
-	(*stack_a) = (*stack_a)->next;
+	while ((*stack_a)->content != head->content)
+		(*stack_a) = (*stack_a)->next;
 }

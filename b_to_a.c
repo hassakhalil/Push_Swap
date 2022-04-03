@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 15:07:40 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/02 01:22:51 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/02 12:08:27 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ int	prepare_stack_a(t_list **stack_a, int l)
 {
 	t_list	*head;
 	int		index;
+	int		flag;
 
+	flag = 0;
 	head = *stack_a;
 	index = head->content;
-	while (head->next != *stack_a)
+	while (head != *stack_a || !flag)
 	{
+		flag = 1;
 		if (head->content > l && head->content < index)
 			index = head->content;
 		head = head->next;
 	}
-	if (head->content > l && head->content < index)
-		index = head->content;
-	head = head->next;
 	return (index);
 }
 
@@ -35,22 +35,28 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 	t_list	*head;
+	t_list	*stack;
 	int		index;
 	int		i;
 	int		k;
 	int		l;
+	int		flag;
 
+	flag = 0;
 	tmp = *stack_b;
 	index = tmp->content;
-	while (tmp->next != *stack_b)
+	while (tmp != *stack_b || !flag)
 	{
-		i = 1;
+		flag = 1;
+		i = 0;
+		stack = *stack_b;
 		head = tmp;
-		while (head->next != (*stack_b))
+		while (stack != head)
 		{
 			i++;
-			head = head->next;
+			stack = stack->next;
 		}
+
 		l = prepare_stack_a(stack_a, tmp->content);
 		head = *stack_a;
 		while (head->content != l)
@@ -64,25 +70,6 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 			index = tmp->content;
 		}
 		tmp = tmp->next;
-	}
-	i = 1;
-	head = tmp;
-	while (head->next != (*stack_b))
-	{
-		i++;
-		head = head->next;
-	}
-	l = prepare_stack_a(stack_a, tmp->content);
-	head = *stack_a;
-	while (head->content != l)
-	{
-		i++;
-		head = head->next;
-	}
-	if (i > k)
-	{
-		k = i;
-		index = tmp->content;
 	}
 	return (index);
 }

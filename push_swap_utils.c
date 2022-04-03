@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:15:51 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/02 01:19:50 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/02 08:18:24 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	ft_lstsize(t_list *lst)
 	int		i;
 	t_list	*head;
 
+	if (!lst)
+		return (0);
 	i = 0;
 	head = lst;
 	while (head->next != lst)
