@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 14:16:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/03 21:30:31 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/03 21:35:05 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,33 +32,32 @@ int	check_swap(t_list **stack, int markup_mode)
 {
 	int		j;
 	int		k;
+	int		flag;
 	t_list	*head;
 
 	j = 0;
 	k = 0;
+	flag = 0;
 	head = *stack;
-	while ((*stack)->next != head)
+	while ((*stack) != head || !flag)
 	{
+		flag = 1;
 		if ((*stack)->markup == 1)
 			j++;
 		(*stack) = (*stack)->next;
 	}
-	if ((*stack)->markup == 1)
-		j++;
-	(*stack) = (*stack)->next;
+	flag = 0;
 	swap(stack);
 	markup(stack, markup_mode);
-	while ((*stack)->next != head)
+	while ((*stack) != head || !flag)
 	{
+		flag = 1;
 		if ((*stack)->markup == 1)
 			k++;
 		(*stack) = (*stack)->next;
 	}
-	if ((*stack)->markup == 1)
-		k++;
 	swap(stack);
 	markup(stack, markup_mode);
-	(*stack) = (*stack)->next;
 	if (k > j)
 		return (1);
 	return (0);
@@ -69,14 +68,10 @@ void	a_to_b(t_list **stack_a, t_list **stack_b, int markup_mode)
 	markup(stack_a, markup_mode);
 	while (check_zero(*stack_a))
 	{
-		if (0)
+		if (check_swap(stack_a, markup_mode))
 		{
-			printf("hello world!\n");
-			if (check_swap(stack_a, markup_mode))
-			{
-				swap(stack_a);
-				markup(stack_a, markup_mode);
-			}
+			swap(stack_a);
+			markup(stack_a, markup_mode);
 		}
 		if ((*stack_a)->markup == 0)
 			push(stack_a, stack_b);

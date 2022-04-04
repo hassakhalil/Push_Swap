@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 15:07:40 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/03 21:30:34 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/04 00:21:46 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	prepare_stack_a(t_list **stack_a, int l)
 
 	flag = 0;
 	head = *stack_a;
-	index = head->content;
+	index = 100000;
 	while (head != *stack_a || !flag)
 	{
 		flag = 1;
