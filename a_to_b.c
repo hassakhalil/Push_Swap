@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 14:16:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/03 21:35:05 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/04 23:51:03 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,5 @@ void	a_to_b(t_list **stack_a, t_list **stack_b, int markup_mode)
 		else
 			rotate(stack_a, 0);
 	}
+	printf("hello world!\n");
 }

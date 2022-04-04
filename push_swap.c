@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/04 00:11:31 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/04 23:57:24 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int	main(int argc, char *argv[])
 	a_to_b(&stack_a, &stack_b, markup_mode);
 	if (stack_b)
 		b_to_a(&stack_a, &stack_b);
+	//align stack a
+	while (stack_a->content)
+		stack_a = stack_a->next;
 	tmp = stack_a;
 	while (tmp->next != stack_a)
 	{
@@ -31,14 +34,6 @@ int	main(int argc, char *argv[])
 		tmp = tmp->next;
 	}
 		printf("%d  ------- %d -------- %d\n", tmp->content, tmp->index, tmp->markup);
-	tmp = stack_b;
-	while (tmp->next != stack_b)
-	{
-		printf("%d ++++++++ %d +++++++++ %d\n", tmp->content, tmp->index, tmp->markup);
-		tmp = tmp->next;
-	}
-		printf("%d ++++++++ %d +++++++++ %d\n", tmp->content, tmp->index, tmp->markup);
-	/*align stack A*/ 
 	/*perfome algo with both markups compare and dispay better result*/
     return (0);
 }
