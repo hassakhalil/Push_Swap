@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 14:16:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/05 22:38:20 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/05 23:45:35 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,18 @@ void	a_to_b(t_list **stack_a, t_list **stack_b, int markup_mode)
 		if (check_swap(stack_a, markup_mode))
 		{
 			swap(stack_a);
+			write(1, "sa\n", 3);
 			markup(stack_a, markup_mode);
 		}
 		if ((*stack_a)->markup == 0)
+		{
 			push(stack_a, stack_b);
+			write(1, "pb\n", 3);
+		}
 		else
+		{
 			rotate(stack_a, 0);
+			write(1, "ra\n", 3);
+		}
 	}
 }
