@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 15:07:40 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/04 00:21:46 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/05 22:55:55 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,33 @@ int	prepare_stack_a(t_list **stack_a, int l)
 	t_list	*head;
 	int		index;
 	int		flag;
+	int		i;
 
+	i = 0;
 	flag = 0;
 	head = *stack_a;
-	index = 100000;
+	index = 2147483647;
 	while (head != *stack_a || !flag)
 	{
 		flag = 1;
 		if (head->content > l && head->content < index)
+		{
 			index = head->content;
+			i = 1;
+		}
 		head = head->next;
+	}
+	if (i == 0)
+	{
+		head = *stack_a;
+		while (head->next != *stack_a)
+		{
+			if (head->content > head->next->content)
+				index = head->next->content;
+			head = head->next;
+		}
+		if (head->content > head->next->content)
+			index = head->next->content;
 	}
 	return (index);
 }
@@ -42,21 +59,19 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 	int		flag;
 
 	flag = 0;
-	k = 10000000;
+	k = 2147483647;
 	tmp = *stack_b;
 	index = tmp->content;
 	while (tmp != *stack_b || !flag)
 	{
 		flag = 1;
 		i = 0;
-		//you have to fixe tthis
 		stack = tmp;
 		while (stack != *stack_b)
 		{
 			i++;
 			stack = stack->next;
 		}
-
 		l = prepare_stack_a(stack_a, tmp->content);
 		stack = *stack_a;
 		while (stack->content != l)
@@ -70,7 +85,8 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 			index = tmp->content;
 		}
 		tmp = tmp->next;
-	}
+
+	}	
 	return (index);
 }
 
