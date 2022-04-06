@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/05 23:57:06 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/06 20:47:10 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,17 @@
 int	main(int argc, char *argv[])
 {
     t_list	*stack_a;
-	t_list	*stack_b = NULL;
-	int		markup_mode = 0;
+	t_list	*stack_b;
+	int		markup_mode;
+	int		error;
 	//t_list	*tmp;
 
-    if (argc > 2)
+
+	error = check_for_error(argc, argv);
+    if (argc > 2 && !error)
 	{
+		stack_b = NULL;
+		markup_mode = 0;
 		stack_a = indexation(argc, argv);
 		a_to_b(&stack_a, &stack_b, markup_mode);
 		if (stack_b)
@@ -35,10 +40,10 @@ int	main(int argc, char *argv[])
 		/*tmp = stack_a;
 		while (tmp->next != stack_a)
 		{
-			printf("%d -------- %d -------- %d\n", tmp->content, tmp->index, tmp->markup);
+			printf("%d\n", tmp->content);
 			tmp = tmp->next;
 		}
-			printf("%d  ------- %d -------- %d\n", tmp->content, tmp->index, tmp->markup);*/
+			printf("%d\n", tmp->content);*/
 		/*perfome algo with both markups compare and dispay better result*/
 	}
     return (0);

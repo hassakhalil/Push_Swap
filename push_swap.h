@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:15:44 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/05 23:45:42 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/06 21:12:56 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,5 @@ void	rotate(t_list **stack, int direction);
 void	a_to_b(t_list **stack_a, t_list	**stack_b, int markup_mode);
 int		check_swap(t_list **stack, int markup_mode);
 void	b_to_a(t_list **stack_a, t_list **stack_b);
+int		check_for_error(int argc, char *argv[]);
 #endif

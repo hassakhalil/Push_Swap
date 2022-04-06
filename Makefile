@@ -6,13 +6,13 @@
 #    By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 21:49:34 by hkhalil           #+#    #+#              #
-#    Updated: 2022/04/02 02:08:42 by hkhalil          ###   ########.fr        #
+#    Updated: 2022/04/06 21:14:19 by hkhalil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRC = push_swap.c push_swap_utils.c push_swap_utils2.c indexation.c markup.c  swap.c push.c rotate.c a_to_b.c b_to_a.c
+SRC = push_swap.c push_swap_utils.c push_swap_utils2.c indexation.c markup.c  swap.c push.c rotate.c a_to_b.c b_to_a.c check_for_error.c
 
 OBJ = $(SRC:.c=.o)
 
