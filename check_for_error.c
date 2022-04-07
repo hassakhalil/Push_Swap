@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 20:47:34 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/07 01:43:35 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/07 23:00:29 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	is_number(char *argv)
 
 int	out_of_range(char *number)
 {
-	printf("%lld\n", ft_atoi(number));
 	if (ft_atoi(number) >  2147483647|| ft_atoi(number) < -2147483648)
 		return (1);
 	return (0);
