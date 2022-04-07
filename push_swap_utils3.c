@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 00:18:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/07 00:22:47 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/07 17:53:07 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,19 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (s);
 }
 
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	size_t	i;
 
+	if (dest == NULL && src == NULL)
+		return (NULL);
+	if (dest == src)
+		return (dest);
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+		i++;
+	}
+	return (dest);
+}
