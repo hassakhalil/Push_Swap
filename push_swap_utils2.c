@@ -6,11 +6,12 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 01:16:11 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/06 21:11:42 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/07 01:42:43 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
 int	ft_isspace(int c)
 {
@@ -20,7 +21,7 @@ int	ft_isspace(int c)
 	return (0);
 }
 
-int	ft_atoi(const char *nptr)
+long long	ft_atoi(const char *nptr)
 {
 	int					sign;
 	int					i;

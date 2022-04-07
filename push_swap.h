@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:15:44 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/07 00:22:50 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/07 01:35:45 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_list
 	int		markup;
 	struct s_list	*next;
 }		t_list;
-int		ft_atoi(const char *nptr);
+long long		ft_atoi(const char *nptr);
 int		ft_isdigit(int c);
 int		ft_strchr(const char *s, int c);
 t_list	*ft_lstnew(int content);
