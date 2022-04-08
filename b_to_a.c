@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 15:07:40 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/08 22:42:03 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/08 23:34:46 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 	int		k;
 	int		l;
 	int		flag;
+	int		x;
 
 	flag = 0;
 	k = 2147483647;
@@ -67,17 +68,19 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 		flag = 1;
 		i = 0;
 		stack = tmp;
+		x = direction(stack, (*stack_b)->content);
 		while (stack != *stack_b)
 		{
 			i++;
-			stack = stack->next;
+			rotate(&stack, x);
 		}
 		l = prepare_stack_a(stack_a, tmp->content);
 		stack = *stack_a;
+		x = direction(stack, l);
 		while (stack->content != l)
 		{
 			i++;
-			stack = stack->next;
+			rotate(&stack, x);
 		}
 		if (i < k)
 		{

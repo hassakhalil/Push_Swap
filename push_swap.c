@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/08 22:42:00 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/08 23:35:01 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char *argv[])
     if (argc > 2 && !error)
 	{
 		stack_b = NULL;
-		markup_mode = 0;
+		markup_mode = 1;
 		stack_a = indexation(argc, argv);
 		a_to_b(&stack_a, &stack_b, markup_mode);
 		if (stack_b)
