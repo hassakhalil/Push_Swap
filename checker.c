@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 23:28:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/07 17:50:17 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/08 00:25:38 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,13 @@ void	checker(t_list *stack_a)
 	char	**instructions;
 	t_list	*stack_b = 0;
 
+
 	si = get_next_line(1);
+	if (!ft_strncmp(si, "Error\n", 5))
+	{
+		write(2, "Error\n", 6);
+		return ;
+	}
 	while (si)
 	{
 		s = ft_strjoin(s, si);
