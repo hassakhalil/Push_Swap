@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 00:18:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/08 22:05:23 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/08 22:40:18 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,29 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		i++;
 	}
 	return (dest);
+}
+
+int		direction(t_list *stack, int index)
+{
+	t_list *tmp;
+	int		i;
+	int		j;
+
+	i = 0;
+	tmp = stack;
+	while (tmp->content != index)
+	{
+		rotate(&tmp, 0);
+		i++;
+	}
+	j = 0;
+	tmp = stack;
+	while (tmp->content != index)
+	{
+		rotate(&tmp, 1);
+		j++;
+	}
+	if (i > j)
+		return (1);
+	return (0);
 }

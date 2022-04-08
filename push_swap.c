@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/08 00:51:19 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/08 22:42:00 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int argc, char *argv[])
 		/*tmp = stack_a;
 		while (tmp->next != stack_a)
 		{
-			printf("%d\n", tmp->content);
+			printf("%d\n", tmp->);
 			tmp = tmp->next;
 		}
 			printf("%d\n", tmp->content);*/
