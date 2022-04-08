@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/08 00:25:42 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/08 00:51:19 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	main(int argc, char *argv[])
 			tmp = tmp->next;
 		}
 			printf("%d\n", tmp->content);*/
-		checker(stack_a);
 		/*perfome algo with both markups compare and dispay better result*/
 	}
     return (0);

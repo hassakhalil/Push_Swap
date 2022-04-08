@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 23:28:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/08 00:25:38 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/08 01:16:09 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 	while (instruction[i])
 	{
 		if (!ft_strncmp("sa", instruction[i], 3))
+
 			swap(stack_a);
 		else if (!ft_strncmp("pb", instruction[i], 3))
 			push(stack_a, stack_b);
@@ -59,7 +60,9 @@ void	checker(t_list *stack_a)
 	t_list	*stack_b = 0;
 
 
-	si = get_next_line(1);
+	printf("hello1111111111\n");
+	si = get_next_line(0);
+	printf("hello222222222\n");
 	if (!ft_strncmp(si, "Error\n", 5))
 	{
 		write(2, "Error\n", 6);
@@ -68,7 +71,7 @@ void	checker(t_list *stack_a)
 	while (si)
 	{
 		s = ft_strjoin(s, si);
-		si = get_next_line(1);
+		si = get_next_line(0);
 	}
 	instructions = ft_split(s, '\n');
 	execution(instructions, &stack_a, &stack_b);
@@ -79,4 +82,10 @@ void	checker(t_list *stack_a)
 	}
 	write(1, "OK\n", 3);
 	return ;
+}
+
+int main(int argc, char	*argv[])
+{
+	t_list	*stack_a = indexation(argc, argv);
+	checker(stack_a);
 }
