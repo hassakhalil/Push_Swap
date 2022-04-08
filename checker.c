@@ -6,21 +6,23 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 23:28:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/08 01:16:09 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/08 01:35:36 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+#include <string.h>
 void	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 {
 	int	i;
 
 	i = 0;
+	printf("ddddsddd\n");
+	printf("[%s]\n", instruction[i]);
 	while (instruction[i])
 	{
+		printf("aaaaaaaaaa\n");
 		if (!ft_strncmp("sa", instruction[i], 3))
-
 			swap(stack_a);
 		else if (!ft_strncmp("pb", instruction[i], 3))
 			push(stack_a, stack_b);
@@ -54,7 +56,7 @@ int	verification(t_list *stack_a)
 
 void	checker(t_list *stack_a)
 {
-	char	*s;
+	char	*s = strdup("");
 	char	*si;
 	char	**instructions;
 	t_list	*stack_b = 0;
