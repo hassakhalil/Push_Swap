@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 23:28:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/08 01:35:36 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/08 21:56:27 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,8 @@ void	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 	int	i;
 
 	i = 0;
-	printf("ddddsddd\n");
-	printf("[%s]\n", instruction[i]);
 	while (instruction[i])
 	{
-		printf("aaaaaaaaaa\n");
 		if (!ft_strncmp("sa", instruction[i], 3))
 			swap(stack_a);
 		else if (!ft_strncmp("pb", instruction[i], 3))
@@ -62,9 +59,9 @@ void	checker(t_list *stack_a)
 	t_list	*stack_b = 0;
 
 
-	printf("hello1111111111\n");
 	si = get_next_line(0);
-	printf("hello222222222\n");
+	if (!si)
+		return ;
 	if (!ft_strncmp(si, "Error\n", 5))
 	{
 		write(2, "Error\n", 6);
