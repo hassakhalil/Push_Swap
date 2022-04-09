@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/09 00:35:34 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/09 00:38:50 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int argc, char *argv[])
 	t_list	*stack_b;
 	int		markup_mode;
 	int		error;
+	int		d;
 	//t_list	*tmp;
 
 
@@ -31,9 +32,10 @@ int	main(int argc, char *argv[])
 		a_to_b(&stack_a, &stack_b, markup_mode);
 		if (stack_b)
 			b_to_a(&stack_a, &stack_b);
+		d = direction(stack_a, 0);
 		while (stack_a->content)
 		{
-			rotate(&stack_a, 0);
+			rotate(&stack_a, d);
 			write(1, "ra\n", 3);
 		}
 		//test
