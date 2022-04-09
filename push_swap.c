@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/09 00:55:32 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/09 01:08:05 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,19 @@ int	main(int argc, char *argv[])
     if (argc > 2 && !error)
 	{
 		stack_b = NULL;
-		markup_mode = 0;
+		markup_mode = 1;
 		stack_a = indexation(argc, argv);
 		a_to_b(&stack_a, &stack_b, markup_mode);
 		if (stack_b)
 			b_to_a(&stack_a, &stack_b);
-		//d = direction(stack_a, 0);
-		 d=0;
+		d = direction(stack_a, 0);
 		while (stack_a->content)
 		{
 			rotate(&stack_a, d);
-			write(1, "ra\n", 3);
+			if (d == 0)
+				write(1, "ra\n", 3);
+			else
+				write(1, "rra\n", 4);
 		}
 		//test
 		/*tmp = stack_a;
