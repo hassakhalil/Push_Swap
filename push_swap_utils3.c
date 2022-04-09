@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 00:18:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/08 22:40:18 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/09 00:35:16 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,30 @@ int		direction(t_list *stack, int index)
 	j = 0;
 	tmp = stack;
 	while (tmp->content != index)
+	{
+		rotate(&tmp, 1);
+		j++;
+	}
+	if (i > j)
+		return (1);
+	return (0);
+}
+int	fastest_push(t_list *stack)
+{
+	t_list *tmp;
+	int		i;
+	int		j;
+
+	i = 0;
+	tmp = stack;
+	while (tmp->markup)
+	{
+		rotate(&tmp, 0);
+		i++;
+	}
+	j = 0;
+	tmp = stack;
+	while (tmp->markup)
 	{
 		rotate(&tmp, 1);
 		j++;
