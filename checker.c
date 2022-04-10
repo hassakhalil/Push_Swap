@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 23:28:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/10 22:53:58 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/10 22:58:05 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 			rotate(stack_b, 1);
 		else if (!ft_strncmp("pa", instruction[i], 3))
 		{
+			if (!j)
+				return (1);
 			push(stack_b, stack_a);
 			j--;
 		}
