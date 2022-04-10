@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 23:28:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/10 22:41:04 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/10 22:48:26 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,19 @@
 int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 {
 	int	i;
+	int j;
 
 	i = 0;
+	j = 0;
 	while (instruction[i])
 	{
 		if (!ft_strncmp("sa", instruction[i], 3))
 			swap(stack_a);
 		else if (!ft_strncmp("pb", instruction[i], 3))
+		{
 			push(stack_a, stack_b);
+			j++;
+		}
 		else if (!ft_strncmp("ra", instruction[i], 3))
 			rotate(stack_a, 0);
 		else if (!ft_strncmp("rra", instruction[i], 3))
@@ -33,7 +38,10 @@ int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 		else if (!ft_strncmp("rrb", instruction[i], 3))
 			rotate(stack_b, 1);
 		else if (!ft_strncmp("pa", instruction[i], 3))
+		{
 			push(stack_b, stack_a);
+			j--;
+		}
 		//add all cases
 		else if (!ft_strncmp("rr", instruction[i], 3))
 		{
@@ -49,6 +57,8 @@ int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 			return (-1);
 		i++;
 	}
+	if (j)
+		return (-1);
 	return (0);
 }
 
