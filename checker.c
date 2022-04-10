@@ -6,13 +6,14 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 23:28:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/10 22:33:57 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/10 22:41:04 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <string.h>
-void	execution(char **instruction, t_list **stack_a, t_list **stack_b)
+
+int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 {
 	int	i;
 
@@ -33,6 +34,7 @@ void	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 			rotate(stack_b, 1);
 		else if (!ft_strncmp("pa", instruction[i], 3))
 			push(stack_b, stack_a);
+		//add all cases
 		else if (!ft_strncmp("rr", instruction[i], 3))
 		{
 			rotate(stack_a, 0);
@@ -43,8 +45,11 @@ void	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 			rotate(stack_a, 1);
 			rotate(stack_b, 1);
 		}
+		else
+			return (-1);
 		i++;
 	}
+	return (0);
 }
 
 int	verification(t_list *stack_a)
@@ -83,7 +88,11 @@ void	checker(t_list *stack_a)
 		si = get_next_line(0);
 	}
 	instructions = ft_split(s, '\n');
-	execution(instructions, &stack_a, &stack_b);
+	if(execution(instructions, &stack_a, &stack_b))
+	{
+		write(2, "Error\n", 6);
+		return ;
+	}
 	if (verification(stack_a))
 	{
 		write(1, "KO\n", 3);
