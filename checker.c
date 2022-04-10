@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 23:28:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/09 01:57:46 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/10 22:33:57 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,13 @@ void	checker(t_list *stack_a)
 
 int main(int argc, char	*argv[])
 {
-	t_list	*stack_a = indexation(argc, argv);
-	checker(stack_a);
+	int		error;
+	t_list	*stack_a;
+
+	error = check_for_error(argc, argv);
+	if (argc > 2 && !error)
+	{
+		stack_a = indexation(argc, argv);
+		checker(stack_a);
+	}
 }
