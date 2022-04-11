@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/11 03:59:37 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/11 05:37:24 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	main(int argc, char *argv[])
 	int		markup_mode;
 	int		error;
 	int		d;
-	//t_list	*tmp;
 
 
 	error = check_for_error(argc, argv);
@@ -41,15 +40,8 @@ int	main(int argc, char *argv[])
 			else
 				write(1, "rra\n", 4);
 		}
-		//test
-		/*tmp = stack_a;
-		while (tmp->next != stack_a)
-		{
-			printf("%d\n", tmp->);
-			tmp = tmp->next;
-		}
-			printf("%d\n", tmp->content);*/
 		/*perfome algo with both markups compare and dispay better result*/
+		//free a
 	}
     return (0);
 }

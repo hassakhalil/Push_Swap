@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 23:28:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/10 22:58:05 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/11 05:43:37 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int	verification(t_list *stack_a)
 
 void	checker(t_list *stack_a)
 {
+	//cahnge thiiis
 	char	*s = strdup("");
 	char	*si;
 	char	**instructions;
