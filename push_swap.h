@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:15:44 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/09 00:26:50 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/12 02:23:55 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,6 @@ void	a_to_b(t_list **stack_a, t_list	**stack_b, int markup_mode);
 int		check_swap(t_list **stack, int markup_mode);
 void	b_to_a(t_list **stack_a, t_list **stack_b);
 int		check_for_error(int argc, char *argv[]);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	**ft_split(char const *s, char c);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-void	checker(t_list *stack_a);
 int		direction(t_list *stack, int index);
 int		fastest_push(t_list *stack);
 #endif

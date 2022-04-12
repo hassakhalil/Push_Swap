@@ -6,11 +6,11 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 23:28:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/11 05:43:37 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/12 02:28:52 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 #include <string.h>
 
 int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
@@ -80,8 +80,7 @@ int	verification(t_list *stack_a)
 
 void	checker(t_list *stack_a)
 {
-	//cahnge thiiis
-	char	*s = strdup("");
+	char	*s = ft_strdup("\n");
 	char	*si;
 	char	**instructions;
 	t_list	*stack_b = 0;
