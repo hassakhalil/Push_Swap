@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 23:28:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/12 02:28:52 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/12 02:38:30 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 	{
 		if (!ft_strncmp("sa", instruction[i], 3))
 			swap(stack_a);
+		if (!ft_strncmp("sb", instruction[i], 3))
+		{
+			if (!j)
+				return (1);
+			swap(stack_b);
+		}
 		else if (!ft_strncmp("pb", instruction[i], 3))
 		{
 			push(stack_a, stack_b);
@@ -44,7 +50,13 @@ int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 			push(stack_b, stack_a);
 			j--;
 		}
-		//add all cases
+		else if (!ft_strncmp("ss", instruction[i], 3))
+		{
+			swap(stack_a);
+			if (!j)
+				return (1);
+			swap(stack_b);
+		}
 		else if (!ft_strncmp("rr", instruction[i], 3))
 		{
 			rotate(stack_a, 0);
