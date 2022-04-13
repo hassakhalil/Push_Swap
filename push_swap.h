@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:15:44 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/12 02:23:55 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/13 22:04:19 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,7 @@ void	b_to_a(t_list **stack_a, t_list **stack_b);
 int		check_for_error(int argc, char *argv[]);
 int		direction(t_list *stack, int index);
 int		fastest_push(t_list *stack);
+char	**ft_split(char const *s, char c);
+char	**parsing(char *argv[]);
+int		count(char **s);
 #endif

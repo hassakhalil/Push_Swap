@@ -6,7 +6,7 @@
 #    By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 21:49:34 by hkhalil           #+#    #+#              #
-#    Updated: 2022/04/12 02:18:57 by hkhalil          ###   ########.fr        #
+#    Updated: 2022/04/13 22:11:12 by hkhalil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ NAME = push_swap
 
 NAME_BONUS = checker
 
-SRC = push_swap_utils.c push_swap_utils2.c push_swap_utils3.c get_next_line_utils.c indexation.c markup.c  swap.c push.c rotate.c a_to_b.c b_to_a.c check_for_error.c
+SRC = ft_split.c parsing.c push_swap_utils.c push_swap_utils2.c push_swap_utils3.c push_swap_utils4.c get_next_line_utils.c indexation.c markup.c  swap.c push.c rotate.c a_to_b.c b_to_a.c check_for_error.c
 
-B_SRC = ft_split.c get_next_line.c
+B_SRC = get_next_line.c
 
 OBJ = $(SRC:.c=.o)
 

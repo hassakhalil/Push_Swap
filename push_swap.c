@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/12 02:43:46 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/13 22:44:13 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,17 @@ int	main(int argc, char *argv[])
 	int		markup_mode;
 	int		error;
 	int		d;
+	char	**s;
 
 
-	error = check_for_error(argc, argv);
-    if (argc > 2 && !error)
+	argc++;
+	s = parsing(argv);
+	error = check_for_error(count(s), s);
+    if (count(s) > 2 && !error)
 	{
 		stack_b = NULL;
 		markup_mode = 1;
-		stack_a = indexation(argc, argv);
+		stack_a = indexation(count(s), s);
 		a_to_b(&stack_a, &stack_b, markup_mode);
 		if (stack_b)
 			b_to_a(&stack_a, &stack_b);

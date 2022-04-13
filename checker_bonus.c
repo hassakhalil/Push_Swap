@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 23:28:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/12 22:51:08 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/13 22:41:32 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 	{
 		if (!ft_strncmp("sa", instruction[i], 3))
 			swap(stack_a);
-		if (!ft_strncmp("sb", instruction[i], 3))
+		else if (!ft_strncmp("sb", instruction[i], 3))
 		{
 			if (!j)
 				return (1);
@@ -148,15 +148,18 @@ void	checker(t_list *stack_a)
 	return ;
 }
 
-int main(int argc, char	*argv[])
+int main(int argc, char *argv[])
 {
 	int		error;
 	t_list	*stack_a;
+	char	**s;
 
-	error = check_for_error(argc, argv);
-	if (argc > 2 && !error)
+	argc++;
+	s = parsing(argv);
+	error = check_for_error(count(s), s);
+	if (count(s) > 2 && !error)
 	{
-		stack_a = indexation(argc, argv);
+		stack_a = indexation(count(s), s);
 		checker(stack_a);
 	}
 }
