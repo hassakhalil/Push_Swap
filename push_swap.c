@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/13 22:44:13 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/13 23:12:44 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char *argv[])
     if (count(s) > 2 && !error)
 	{
 		stack_b = NULL;
-		markup_mode = 1;
+		markup_mode = 0;
 		stack_a = indexation(count(s), s);
 		a_to_b(&stack_a, &stack_b, markup_mode);
 		if (stack_b)
@@ -44,6 +44,7 @@ int	main(int argc, char *argv[])
 				write(1, "rra\n", 4);
 		}
 		/*perfome algo with both markups compare and dispay better result*/
+		
 		//free a
 	}
     return (0);
