@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/14 05:51:27 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/14 08:44:04 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int argc, char *argv[])
 				k = l;
 				best = i;
 			}
-			//free stack_a
+			free_stack(stack_a);
 			i++;
 		}
 		stack_b = NULL;
@@ -71,8 +71,8 @@ int	main(int argc, char *argv[])
 			else
 				write(1, "rra\n", 4);
 		}
-		//free s
-		//free a
+		free_stack(stack_a);
 	}
+	free_table(s);
     return (0);
 }
