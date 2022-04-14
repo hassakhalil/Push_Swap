@@ -6,7 +6,7 @@
 #    By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 21:49:34 by hkhalil           #+#    #+#              #
-#    Updated: 2022/04/13 22:11:12 by hkhalil          ###   ########.fr        #
+#    Updated: 2022/04/14 05:35:12 by hkhalil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJ = $(SRC:.c=.o)
 
 B_OBJ = $(B_SRC:.c=.o)
 
-CFLAGS = -D BUFFER_SIZE=42 -g3 -fsanitize=address -Wall -Wextra -Werror
+CFLAGS = -D BUFFER_SIZE=42 -fsanitize=address -Wall -Wextra -Werror
 
 $(NAME): $(OBJ) 
 	cc $(CFLAGS) $(OBJ)  push_swap.c -o $(NAME)
@@ -33,7 +33,7 @@ bonus: $(OBJ) $(B_OBJ)
 	cc $(CFLAGS) $(OBJ) $(B_OBJ) checker_bonus.c -o $(NAME_BONUS)
 
 clean:
-	rm -rf $(OBJ) $(OBJ_BONUS) checker_bonus.o push_swap.o
+	rm -rf $(OBJ) $(B_OBJ) checker_bonus.o push_swap.o
 
 fclean: clean
 	rm -rf $(NAME) $(NAME_BONUS)

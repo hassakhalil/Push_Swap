@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 14:16:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/09 01:40:23 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/14 05:33:13 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	check_swap(t_list **stack, int markup_mode)
 	return (0);
 }
 
-void	a_to_b(t_list **stack_a, t_list **stack_b, int markup_mode)
+void	a_to_b(t_list **stack_a, t_list **stack_b, int markup_mode, int *moves, int phase)
 {
 	int	direction;
 
@@ -74,7 +74,10 @@ void	a_to_b(t_list **stack_a, t_list **stack_b, int markup_mode)
 		if (check_swap(stack_a, markup_mode))
 		{
 			swap(stack_a);
-			write(1, "sa\n", 3);
+			if (phase == 1)
+				write(1, "sa\n", 3);
+			else
+				(*moves)++;
 			markup(stack_a, markup_mode);
 		}
 		if ((*stack_a)->markup == 0)
@@ -82,15 +85,23 @@ void	a_to_b(t_list **stack_a, t_list **stack_b, int markup_mode)
 			push(stack_a, stack_b);
 			if (check_zero(*stack_a))
 				direction = fastest_push(*stack_a);
-			write(1, "pb\n", 3);
+			if (phase == 1)
+				write(1, "pb\n", 3);
+			else
+				(*moves)++;
 		}
 		else
 		{
 			rotate(stack_a, direction);
-			if (direction == 0)
-				write(1, "ra\n", 3);
+			if (phase == 1)
+			{
+				if (direction == 0)
+					write(1, "ra\n", 3);
+				else
+					write(1, "rra\n", 4);
+			}
 			else
-				write(1, "rra\n", 4);
+				(*moves)++;
 		}
 	}
 }

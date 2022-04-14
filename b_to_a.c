@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 15:07:40 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/09 02:09:19 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/14 04:47:52 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 	return (index);
 }
 
-void	move(t_list **stack_a, t_list **stack_b, int index)
+void	move(t_list **stack_a, t_list **stack_b, int index, int *moves, int phase)
 {
 	int	l;
 	int	x;
@@ -108,31 +108,46 @@ void	move(t_list **stack_a, t_list **stack_b, int index)
 		{
 			rotate(stack_a, x);
 			rotate(stack_b, x);
-			if (x == 0)
-				write(1, "rr\n", 3);
+			if (phase == 1)
+			{
+				if (x == 0)
+					write(1, "rr\n", 3);
+				else
+					write(1, "rrr\n", 4);
+			}
 			else
-				write(1, "rrr\n", 4);
+				(*moves)++;
 		}
 	}
 	while ((*stack_b)->content != index)
 	{
 		rotate(stack_b, x);
-		if (x == 0)
-			write(1, "rb\n", 3);
+		if (phase == 1)
+		{
+			if (x == 0)
+				write(1, "rb\n", 3);
+			else
+				write(1, "rrb\n", 4);
+		}
 		else
-			write(1, "rrb\n", 4);
+			(*moves)++;
 	}
 	while ((*stack_a)->content != l)
 	{
 		rotate(stack_a, y);
-		if (y == 0)
-			write(1, "ra\n", 3);
+		if (phase == 1)
+		{
+			if (y == 0)
+				write(1, "ra\n", 3);
+			else
+				write(1, "rra\n", 4);
+		}
 		else
-			write(1, "rra\n", 4);
+			(*moves)++;
 	}
 }
 
-void	b_to_a(t_list **stack_a, t_list **stack_b)
+void	b_to_a(t_list **stack_a, t_list **stack_b, int *moves, int phase)
 {
 	int	index;
 	int	n;
@@ -141,9 +156,12 @@ void	b_to_a(t_list **stack_a, t_list **stack_b)
 	while (n)
 	{
 		index = choose_mover(stack_a, stack_b);
-		move(stack_a, stack_b, index);
+		move(stack_a, stack_b, index, moves, phase);
 		push(stack_b, stack_a);
-		write(1, "pa\n", 3);
+		if (phase == 1)
+			write(1, "pa\n", 3);
+		else
+			(*moves)++;
 		n--;
 	}
 }
