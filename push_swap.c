@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 05:20:26 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/14 05:33:16 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/14 05:51:27 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int	main(int argc, char *argv[])
 				k = l;
 				best = i;
 			}
+			//free stack_a
 			i++;
 		}
-		/*perfome algo with both markups compare and dispay better result*/
 		stack_b = NULL;
 		stack_a = indexation(count(s), s);
 		a_to_b(&stack_a, &stack_b, best, &l, 1);
@@ -71,6 +71,7 @@ int	main(int argc, char *argv[])
 			else
 				write(1, "rra\n", 4);
 		}
+		//free s
 		//free a
 	}
     return (0);

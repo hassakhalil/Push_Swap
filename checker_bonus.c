@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 23:28:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/13 22:41:32 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/14 05:51:29 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,15 +128,18 @@ void	checker(t_list *stack_a)
 	while (si)
 	{
 		s = ft_strjoin(s, si);
+		free(si);
 		si = get_next_line(0);
 	}
 	instructions = ft_split(s, '\n');
+	//free s
 	if(execution(instructions, &stack_a, &stack_b))
 	{
 		if (execution(instructions, &stack_a, &stack_b) == -1)
 			write(2, "Error\n", 6);
 		else
 			write(1, "KO\n", 3);
+		//free instructions
 		return ;
 	}
 	if (verification(stack_a))
@@ -161,5 +164,8 @@ int main(int argc, char *argv[])
 	{
 		stack_a = indexation(count(s), s);
 		checker(stack_a);
+		//free stack_a
+
 	}
+	//free s
 }
