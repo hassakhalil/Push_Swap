@@ -30,12 +30,12 @@ int	is_number(char *argv)
 
 int	out_of_range(char *number)
 {
-	if (ft_atoi(number) >  2147483647|| ft_atoi(number) < -2147483648)
+	if (ft_atoi(number) > 2147483647 || ft_atoi(number) < -2147483648)
 		return (1);
 	return (0);
 }
 
-int	is_duplicate(char * argv[], int i, char *number)
+int	is_duplicate(char *argv[], int i, char *number)
 {
 	i--;
 	while (i)
@@ -47,16 +47,17 @@ int	is_duplicate(char * argv[], int i, char *number)
 	return (0);
 }
 
-int	check_for_error(int	argc, char *argv[])
+int	check_for_error(int argc, char *argv[])
 {
 	int	i;
 
 	i = 1;
 	while (argc > i)
 	{
-		if (is_number(argv[i]) || out_of_range(argv[i]) || is_duplicate(argv, i, argv[i]))
+		if (is_number(argv[i]) || out_of_range(argv[i])
+			|| is_duplicate(argv, i, argv[i]))
 		{
-			write(2,"Error\n", 6);
+			write(2, "Error\n", 6);
 			return (1);
 		}
 		i++;
