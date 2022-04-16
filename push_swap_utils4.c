@@ -24,7 +24,7 @@ int	count(char **s)
 
 void	free_stack(t_list *stack)
 {
-	t_list *head;
+	t_list	*head;
 	t_list	*tmp;
 	int		flag;
 

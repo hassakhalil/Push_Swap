@@ -15,7 +15,7 @@
 
 int	main(int argc, char *argv[])
 {
-    t_list	*stack_a;
+	t_list	*stack_a;
 	t_list	*stack_b;
 	int		markup_mode;
 	int		error;
@@ -23,17 +23,16 @@ int	main(int argc, char *argv[])
 	char	**s;
 	int		i;
 	int		l;
-	int		k = 10000;
+	int		k;
 	int		best;
-
-
 
 	argc++;
 	s = parsing(argv);
 	error = check_for_error(count(s), s);
-    if (count(s) > 2 && !error)
+	if (count(s) > 2 && !error)
 	{
 		i = 0;
+		k = 10000;
 		while (i < 2)
 		{
 			stack_b = NULL;
@@ -74,5 +73,5 @@ int	main(int argc, char *argv[])
 		free_stack(stack_a);
 	}
 	free_table(s);
-    return (0);
+	return (0);
 }

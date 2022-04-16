@@ -32,7 +32,7 @@ char	*ft_strchr_gnl(const char *s, int c)
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t		i;
-	char	*sub;
+	char		*sub;
 
 	if (!s)
 		return (0);

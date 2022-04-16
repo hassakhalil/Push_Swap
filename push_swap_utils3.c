@@ -74,9 +74,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-int		direction(t_list *stack, int index)
+int	direction(t_list *stack, int index)
 {
-	t_list *tmp;
+	t_list	*tmp;
 	int		i;
 	int		j;
 
@@ -98,9 +98,10 @@ int		direction(t_list *stack, int index)
 		return (1);
 	return (0);
 }
+
 int	fastest_push(t_list *stack)
 {
-	t_list *tmp;
+	t_list	*tmp;
 	int		i;
 	int		j;
 

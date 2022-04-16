@@ -14,10 +14,13 @@
 
 int	count_of_args(char *s)
 {
-	int	i = 0;
-	int	n = 0;
-	int flag = 0;
+	int	i;
+	int	n;
+	int	flag;
 
+	flag = 0;
+	i = 0;
+	n = 0;
 	while (s[i])
 	{
 		while (s[i] && s[i] != ' ')
@@ -38,37 +41,57 @@ int	count_of_args(char *s)
 	return (n);
 }
 
-char	**parsing(char *argv[])
+char	**total_of_args(char *argv[])
 {
 	char	**s;
-	char	**si;
-	int	i = 0;
-	int	j = 0;
-	int	k = 0;
-	int	n = 0;
+	int		i;
+	int		n;
 
-
+	i = 0;
+	n = 0;
 	while (argv[i])
 	{
 		n = n + count_of_args(argv[i]);
 		i++;
 	}
 	s = malloc(sizeof(char *) * (n + 1));
+	return (s);
+}
+
+char	*copy(char *x)
+{
+	char	*y;
+
+	y = ft_strdup(x);
+	free(x);
+	return (y);
+}
+
+char	**parsing(char *argv[])
+{
+	char	**s;
+	char	**si;
+	int		i;
+	int		j;
+	int		n;
+
+	s = total_of_args(argv);
+	if (!s)
+		return (0);
 	i = 0;
-	k = 0;
+	n = 0;
 	while (argv[i])
 	{
 		si = ft_split(argv[i], ' ');
 		j = 0;
 		while (si[j])
 		{
-			s[k] = ft_strdup(si[j]);
-			free(si[j]);
-			k++;
+			s[n] = copy(si[j]);
+			n++;
 			j++;
 		}
 		i++;
 	}
-	s[k] = NULL;
+	s[n] = NULL;
 	return (s);
 }
