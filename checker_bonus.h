@@ -11,9 +11,10 @@
 /* ************************************************************************** */
 
 #ifndef CHECKER_BONUS_H
-#define CHECKER_BONUS_H
-#include "push_swap.h"
-#include "get_next_line.h"
+# define CHECKER_BONUS_H
+# include "push_swap.h"
+# include "get_next_line.h"
+
 void	checker(t_list *stack_a);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
