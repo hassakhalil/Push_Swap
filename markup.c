@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:28:07 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/14 05:37:14 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/16 06:58:46 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,22 +87,17 @@ void	markup(t_list **stack_a, int markup_mode)
 	while ((*stack_a)->content != markup_h->content)
 		(*stack_a) = (*stack_a)->next;
 	(*stack_a)->markup = 1;
-	markup_h = *stack_a;
-	(*stack_a) = (*stack_a)->next;
 	while (size - 1)
 	{
+		(*stack_a) = (*stack_a)->next;
 		if (check_markup(markup_h->content,
 				(*stack_a)->content, markup_mode))
 		{
 			markup_h = *stack_a;
 			(*stack_a)->markup = 1;
-			(*stack_a) = (*stack_a)->next;
 		}
 		else
-		{
 			(*stack_a)->markup = 0;
-			(*stack_a) = (*stack_a)->next;
-		}
 		size--;
 	}
 	while ((*stack_a)->content != head->content)
