@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 23:28:43 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/14 08:44:02 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/17 02:20:26 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,7 @@ int	main(int argc, char *argv[])
 	char	**s;
 
 	argc++;
-	s = parsing(argv);
+	s = parsing(argc, argv);
 	error = check_for_error(count(s), s);
 	if (count(s) > 2 && !error)
 	{

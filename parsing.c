@@ -41,12 +41,13 @@ int	count_of_args(char *s)
 	return (n);
 }
 
-char	**total_of_args(char *argv[])
+char	**total_of_args(int argc, char *argv[])
 {
 	char	**s;
 	int		i;
 	int		n;
 
+	argc++;
 	i = 0;
 	n = 0;
 	while (argv[i])
@@ -67,7 +68,7 @@ char	*copy(char *x)
 	return (y);
 }
 
-char	**parsing(char *argv[])
+char	**parsing(int argc, char *argv[])
 {
 	char	**s;
 	char	**si;
@@ -75,7 +76,7 @@ char	**parsing(char *argv[])
 	int		j;
 	int		n;
 
-	s = total_of_args(argv);
+	s = total_of_args(argc, argv);
 	if (!s)
 		return (0);
 	i = 0;

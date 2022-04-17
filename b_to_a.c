@@ -151,16 +151,19 @@ void	b_to_a(t_list **stack_a, t_list **stack_b, int *moves, int phase)
 	int	index;
 	int	n;
 
-	n = ft_lstsize(*stack_b);
-	while (n)
+	if (stack_b)
 	{
-		index = choose_mover(stack_a, stack_b);
-		move(stack_a, stack_b, index, moves, phase);
-		push(stack_b, stack_a);
-		if (phase == 1)
-			write(1, "pa\n", 3);
-		else
-			(*moves)++;
-		n--;
+		n = ft_lstsize(*stack_b);
+		while (n)
+		{
+			index = choose_mover(stack_a, stack_b);
+			move(stack_a, stack_b, index, moves, phase);
+			push(stack_b, stack_a);
+			if (phase == 1)
+				write(1, "pa\n", 3);
+			else
+				(*moves)++;
+			n--;
+		}
 	}
 }

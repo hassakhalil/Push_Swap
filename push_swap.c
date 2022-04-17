@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+
 int	test(char **s)
 {
 	t_list	*stack_a;
@@ -57,15 +57,13 @@ int	main(int argc, char *argv[])
 	int		d;
 	char	**s;
 	int		l;
-	
-	argc++;
-	s = parsing(argv);
+
+	s = parsing(argc, argv);
 	if (count(s) > 2 && !check_for_error(count(s), s))
 	{
 		stack_a = indexation(count(s), s);
 		stack_b = a_to_b(&stack_a, test(s), &l, 1);
-		if (stack_b)
-			b_to_a(&stack_a, &stack_b, &l, 1);
+		b_to_a(&stack_a, &stack_b, &l, 1);
 		d = direction(stack_a, 0);
 		while (stack_a->content)
 		{
