@@ -37,7 +37,7 @@ void			markup(t_list **stack_a, int makrup_mode);
 void			swap(t_list **stack);
 void			push(t_list **stack_x, t_list **stack_y);
 void			rotate(t_list **stack, int direction);
-void			a_to_b(t_list **stack_a, t_list	**stack_b, int markup_mode, int *moves, int phase);
+t_list			*a_to_b(t_list **stack_a, int markup_mode, int *moves, int phase);
 int				check_swap(t_list **stack, int markup_mode);
 void			b_to_a(t_list **stack_a, t_list **stack_b, int *moves, int phase);
 int				check_for_error(int argc, char *argv[]);

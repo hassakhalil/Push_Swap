@@ -63,10 +63,12 @@ int	check_swap(t_list **stack, int markup_mode)
 	return (0);
 }
 
-void	a_to_b(t_list **stack_a, t_list **stack_b, int markup_mode, int *moves, int phase)
+t_list	*a_to_b(t_list **stack_a, int markup_mode, int *moves, int phase)
 {
-	int	direction;
+	int		direction;
+	t_list	*stack_b;
 
+	stack_b = 0;
 	markup(stack_a, markup_mode);
 	direction = 0;
 	while (check_zero(*stack_a))
@@ -82,7 +84,7 @@ void	a_to_b(t_list **stack_a, t_list **stack_b, int markup_mode, int *moves, int
 		}
 		else if ((*stack_a)->markup == 0)
 		{
-			push(stack_a, stack_b);
+			push(stack_a, &stack_b);
 			if (check_zero(*stack_a))
 				direction = fastest_push(*stack_a);
 			if (phase == 1)
@@ -104,4 +106,5 @@ void	a_to_b(t_list **stack_a, t_list **stack_b, int markup_mode, int *moves, int
 				(*moves)++;
 		}
 	}
+	return (stack_b);
 }

@@ -35,11 +35,10 @@ int	main(int argc, char *argv[])
 		k = 10000;
 		while (i < 2)
 		{
-			stack_b = NULL;
 			stack_a = indexation(count(s), s);
 			l = 0;
 			markup_mode = i;
-			a_to_b(&stack_a, &stack_b, markup_mode, &l, 0);
+			stack_b = a_to_b(&stack_a, markup_mode, &l, 0);
 			if (stack_b)
 				b_to_a(&stack_a, &stack_b, &l, 0);
 			d = direction(stack_a, 0);
@@ -56,9 +55,8 @@ int	main(int argc, char *argv[])
 			free_stack(stack_a);
 			i++;
 		}
-		stack_b = NULL;
 		stack_a = indexation(count(s), s);
-		a_to_b(&stack_a, &stack_b, best, &l, 1);
+		stack_b = a_to_b(&stack_a, best, &l, 1);
 		if (stack_b)
 			b_to_a(&stack_a, &stack_b, &l, 1);
 		d = direction(stack_a, 0);
