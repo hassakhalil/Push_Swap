@@ -12,39 +12,44 @@
 
 #include "push_swap.h"
 
+int	test_algo(int i, char **s)
+{
+	int		l;
+	int		d;
+	t_list	*stack_b;
+	t_list	*stack_a;
+
+	stack_a = indexation(count(s), s);
+	l = 0;
+	stack_b = a_to_b(&stack_a, i, &l, 0);
+	b_to_a(&stack_a, &stack_b, &l, 0);
+	d = direction(stack_a, 0);
+	while (stack_a->content)
+	{
+		rotate(&stack_a, d);
+		l++;
+	}
+	free_stack(stack_a);
+	return (l);
+}
+
 int	test(char **s)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
-	int		markup_mode;
 	int		i;
 	int		k;
 	int		l;
-	int		d;
 	int		best;
 
 	i = 0;
 	k = 10000;
 	while (i < 2)
 	{
-		stack_a = indexation(count(s), s);
-		l = 0;
-		markup_mode = i;
-		stack_b = a_to_b(&stack_a, markup_mode, &l, 0);
-		if (stack_b)
-			b_to_a(&stack_a, &stack_b, &l, 0);
-		d = direction(stack_a, 0);
-		while (stack_a->content)
-		{
-			rotate(&stack_a, d);
-			l++;
-		}
+		l = test_algo(i, s);
 		if (k > l)
 		{
 			k = l;
 			best = i;
 		}
-		free_stack(stack_a);
 		i++;
 	}
 	return (best);
