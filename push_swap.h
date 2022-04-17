@@ -46,7 +46,7 @@ int				check_for_error(int argc, char *argv[]);
 int				direction(t_list *stack, int index);
 int				fastest_push(t_list *stack);
 char			**ft_split(char const *s, char c);
-char			**parsing(int, char *argv[]);
+char			**parsing(int argc, char *argv[]);
 int				count(char **s);
 void			free_stack(t_list *stack);
 void			free_table(char **s);
