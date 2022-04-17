@@ -80,7 +80,7 @@ void	a_to_b(t_list **stack_a, t_list **stack_b, int markup_mode, int *moves, int
 				(*moves)++;
 			markup(stack_a, markup_mode);
 		}
-		if ((*stack_a)->markup == 0)
+		else if ((*stack_a)->markup == 0)
 		{
 			push(stack_a, stack_b);
 			if (check_zero(*stack_a))

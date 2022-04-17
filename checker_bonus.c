@@ -16,7 +16,7 @@
 int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 {
 	int	i;
-	int j;
+	int	j;
 	int	n;
 
 	i = 0;
@@ -111,11 +111,10 @@ int	verification(t_list *stack_a)
 
 void	checker(t_list *stack_a)
 {
-	char	*s = ft_strdup("\n");
+	char	*s;
 	char	*si;
 	char	**instructions;
-	t_list	*stack_b = 0;
-
+	t_list	*stack_b;
 
 	si = get_next_line(0);
 	if (!si)
@@ -125,6 +124,7 @@ void	checker(t_list *stack_a)
 		write(2, "Error\n", 6);
 		return ;
 	}
+	s = ft_strdup("\n");
 	while (si)
 	{
 		s = ft_strjoin(s, si);
@@ -133,7 +133,8 @@ void	checker(t_list *stack_a)
 	}
 	instructions = ft_split(s, '\n');
 	free(s);
-	if(execution(instructions, &stack_a, &stack_b))
+	stack_b = 0;
+	if (execution(instructions, &stack_a, &stack_b))
 	{
 		if (execution(instructions, &stack_a, &stack_b) == -1)
 			write(2, "Error\n", 6);
@@ -152,7 +153,7 @@ void	checker(t_list *stack_a)
 	return ;
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	int		error;
 	t_list	*stack_a;

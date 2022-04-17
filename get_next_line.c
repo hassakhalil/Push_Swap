@@ -66,7 +66,7 @@ char	*get_next_line(int fd)
 		ret = read_new_buff(&rest, fd);
 		if (ft_strchr_gnl(rest, '\n'))
 			return (rest_with_nl(&rest));
-		 if (ret < BUFFER_SIZE)
+		if (ret < BUFFER_SIZE)
 			return (last_line(&rest));
 	}
 	return (0);
