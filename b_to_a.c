@@ -88,7 +88,6 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 			index = tmp->content;
 		}
 		tmp = tmp->next;
-
 	}	
 	return (index);
 }
