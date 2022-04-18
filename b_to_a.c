@@ -133,14 +133,12 @@ void	move(t_list **stack_a, t_list **stack_b, int *moves, int phase)
 	l = prepare_stack_a(stack_a, index);
 	x = direction(*stack_b, index);
 	y = direction(*stack_a, l);
-	if (x == y)
+	while (x == y
+	&& ((*stack_b)->content != index) && ((*stack_a)->content != l))
 	{
-		while (((*stack_b)->content != index) && ((*stack_a)->content != l))
-		{
-			rotate(stack_a, x);
-			rotate(stack_b, x);
-			move_h(phase, moves, x, 1);
-		}
+		rotate(stack_a, x);
+		rotate(stack_b, x);
+		move_h(phase, moves, x, 1);
 	}
 	while ((*stack_b)->content != index)
 	{
