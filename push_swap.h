@@ -50,4 +50,8 @@ char			**parsing(int argc, char *argv[]);
 int				count(char **s);
 void			free_stack(t_list *stack);
 void			free_table(char **s);
+void			rr(t_list **stack_a, t_list **stack_b, int x);
+void			move(t_list **stack_a, t_list **stack_b, int *moves, int phase);
+int				choose_mover(t_list **stack_a, t_list **stack_b);
+int				prepare_stack_a(t_list **stack_a, int l);
 #endif

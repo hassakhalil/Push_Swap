@@ -6,7 +6,7 @@
 #    By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 21:49:34 by hkhalil           #+#    #+#              #
-#    Updated: 2022/04/14 05:36:06 by hkhalil          ###   ########.fr        #
+#    Updated: 2022/04/18 06:27:16 by hkhalil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 
 NAME_BONUS = checker
 
-SRC = ft_split.c parsing.c push_swap_utils.c push_swap_utils2.c push_swap_utils3.c push_swap_utils4.c get_next_line_utils.c indexation.c markup.c  swap.c push.c rotate.c a_to_b.c b_to_a.c check_for_error.c
+SRC = ft_split.c parsing.c push_swap_utils.c push_swap_utils2.c push_swap_utils3.c push_swap_utils4.c push_swap_utils5.c get_next_line_utils.c indexation.c markup.c  swap.c push.c rotate.c a_to_b.c b_to_a.c check_for_error.c
 
 B_SRC = get_next_line.c
 
