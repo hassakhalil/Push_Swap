@@ -17,9 +17,7 @@ int	prepare_stack_a(t_list **stack_a, int l)
 	t_list	*head;
 	int		index;
 	int		flag;
-	int		i;
 
-	i = 0;
 	flag = 0;
 	head = *stack_a;
 	index = 2147483647;
@@ -27,13 +25,10 @@ int	prepare_stack_a(t_list **stack_a, int l)
 	{
 		flag = 1;
 		if (head->content > l && head->content < index)
-		{
 			index = head->content;
-			i = 1;
-		}
 		head = head->next;
 	}
-	if (i == 0)
+	if (index == 2147483647)
 	{
 		head = *stack_a;
 		while (head->next != *stack_a)
