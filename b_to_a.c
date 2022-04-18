@@ -30,16 +30,14 @@ int	prepare_stack_a(t_list **stack_a, int l)
 	}
 	if (index == 2147483647)
 	{
-		head = *stack_a;
-		while (head->next != *stack_a)
+		while (head != *stack_a || flag)
 		{
+			flag = 0;
 			if (head->content > head->next->content)
 				index = head->next->content;
 			head = head->next;
 		}
-		if (head->content > head->next->content)
-			index = head->next->content;
-	}
+	}	
 	return (index);
 }
 
