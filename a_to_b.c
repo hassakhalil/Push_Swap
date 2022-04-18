@@ -63,47 +63,44 @@ int	check_swap(t_list **stack, int markup_mode)
 	return (0);
 }
 
+void	a_to_b_h(int *moves, int phase, int move)
+{
+	if (phase == 1)
+	{
+		if (move == 1)
+			write(1, "sa\n", 3);
+		else if (move == 2)
+			write(1, "pb\n", 3);
+		else
+			write(1, "ra\n", 3);
+	}
+	else
+		(*moves)++;
+}
+
 t_list	*a_to_b(t_list **stack_a, int markup_mode, int *moves, int phase)
 {
-	int		direction;
 	t_list	*stack_b;
 
 	stack_b = 0;
 	markup(stack_a, markup_mode);
-	direction = 0;
 	while (check_zero(*stack_a))
 	{
 		if (check_swap(stack_a, markup_mode))
 		{
 			swap(stack_a);
-			if (phase == 1)
-				write(1, "sa\n", 3);
-			else
-				(*moves)++;
+			a_to_b_h(moves, phase, 1);
 			markup(stack_a, markup_mode);
 		}
 		else if ((*stack_a)->markup == 0)
 		{
 			push(stack_a, &stack_b);
-			if (check_zero(*stack_a))
-				direction = fastest_push(*stack_a);
-			if (phase == 1)
-				write(1, "pb\n", 3);
-			else
-				(*moves)++;
+			a_to_b_h(moves, phase, 2);
 		}
 		else
 		{
-			rotate(stack_a, direction);
-			if (phase == 1)
-			{
-				if (direction == 0)
-					write(1, "ra\n", 3);
-				else
-					write(1, "rra\n", 4);
-			}
-			else
-				(*moves)++;
+			rotate(stack_a, 0);
+			a_to_b_h(moves, phase, 3);
 		}
 	}
 	return (stack_b);
