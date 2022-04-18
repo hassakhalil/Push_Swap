@@ -93,6 +93,36 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 	return (index);
 }
 
+void	move_h(int phase, int *moves, int x, int move)
+{
+	if (phase == 1)
+	{
+		if (move == 1)
+		{
+			if (x == 0)
+				write(1, "rr\n", 3);
+			else
+				write(1, "rrr\n", 4);
+		}
+		else if (move == 2)
+		{
+			if (x == 0)
+				write(1, "rb\n", 3);
+			else
+				write(1, "rrb\n", 4);
+		}
+		else
+		{
+			if (x == 0)
+				write(1, "ra\n", 3);
+			else
+				write(1, "rra\n", 4);
+		}
+	}
+	else
+		(*moves)++;
+}
+
 void	move(t_list **stack_a, t_list **stack_b, int *moves, int phase)
 {
 	int	l;
@@ -110,42 +140,18 @@ void	move(t_list **stack_a, t_list **stack_b, int *moves, int phase)
 		{
 			rotate(stack_a, x);
 			rotate(stack_b, x);
-			if (phase == 1)
-			{
-				if (x == 0)
-					write(1, "rr\n", 3);
-				else
-					write(1, "rrr\n", 4);
-			}
-			else
-				(*moves)++;
+			move_h(phase, moves, x, 1);
 		}
 	}
 	while ((*stack_b)->content != index)
 	{
 		rotate(stack_b, x);
-		if (phase == 1)
-		{
-			if (x == 0)
-				write(1, "rb\n", 3);
-			else
-				write(1, "rrb\n", 4);
-		}
-		else
-			(*moves)++;
+		move_h(phase, moves, x, 2);
 	}
 	while ((*stack_a)->content != l)
 	{
 		rotate(stack_a, y);
-		if (phase == 1)
-		{
-			if (y == 0)
-				write(1, "ra\n", 3);
-			else
-				write(1, "rra\n", 4);
-		}
-		else
-			(*moves)++;
+		move_h(phase, moves, y, 3);
 	}
 }
 
