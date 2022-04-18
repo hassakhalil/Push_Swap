@@ -119,8 +119,7 @@ void	move_h(int phase, int *moves, int x, int move)
 				write(1, "rra\n", 4);
 		}
 	}
-	else
-		(*moves)++;
+	(*moves)++;
 }
 
 void	move(t_list **stack_a, t_list **stack_b, int *moves, int phase)
