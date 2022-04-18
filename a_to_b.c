@@ -28,15 +28,13 @@ int	check_zero(t_list *stack)
 	return (0);
 }
 
-int	check_swap(t_list **stack, int markup_mode)
+int	check_swap_h(t_list **stack)
 {
 	int		j;
-	int		k;
 	int		flag;
 	t_list	*head;
 
 	j = 0;
-	k = 0;
 	flag = 0;
 	head = *stack;
 	while ((*stack) != head || !flag)
@@ -46,16 +44,18 @@ int	check_swap(t_list **stack, int markup_mode)
 			j++;
 		(*stack) = (*stack)->next;
 	}
-	flag = 0;
+	return (j);
+}
+
+int	check_swap(t_list **stack, int markup_mode)
+{
+	int		j;
+	int		k;
+
+	j = check_swap_h(stack);
 	swap(stack);
 	markup(stack, markup_mode);
-	while ((*stack) != head || !flag)
-	{
-		flag = 1;
-		if ((*stack)->markup == 1)
-			k++;
-		(*stack) = (*stack)->next;
-	}
+	k = check_swap_h(stack);
 	swap(stack);
 	markup(stack, markup_mode);
 	if (k > j)
