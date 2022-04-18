@@ -122,6 +122,12 @@ void	move_h(int phase, int *moves, int x, int move)
 	(*moves)++;
 }
 
+void	rr(t_list **stack_a, t_list **stack_b, int x)
+{
+	rotate(stack_a, x);
+	rotate(stack_b, x);
+}
+
 void	move(t_list **stack_a, t_list **stack_b, int *moves, int phase)
 {
 	int	l;
@@ -134,10 +140,9 @@ void	move(t_list **stack_a, t_list **stack_b, int *moves, int phase)
 	x = direction(*stack_b, index);
 	y = direction(*stack_a, l);
 	while (x == y
-	&& ((*stack_b)->content != index) && ((*stack_a)->content != l))
+		&& ((*stack_b)->content != index) && ((*stack_a)->content != l))
 	{
-		rotate(stack_a, x);
-		rotate(stack_b, x);
+		rr(stack_a, stack_b, x);
 		move_h(phase, moves, x, 1);
 	}
 	while ((*stack_b)->content != index)
