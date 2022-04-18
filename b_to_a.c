@@ -41,16 +41,39 @@ int	prepare_stack_a(t_list **stack_a, int l)
 	return (index);
 }
 
+int	choose_mover_h(t_list **stack_a, t_list **stack_b, t_list *tmp)
+{
+	int		i;
+	t_list	*stack;
+	int		x;
+	int		l;
+
+	i = 0;
+	stack = tmp;
+	x = direction(stack, (*stack_b)->content);
+	while (stack != *stack_b)
+	{
+		i++;
+		rotate(&stack, x);
+	}
+	l = prepare_stack_a(stack_a, tmp->content);
+	stack = *stack_a;
+	x = direction(stack, l);
+	while (stack->content != l)
+	{
+		i++;
+		rotate(&stack, x);
+	}
+	return (i);
+}
+
 int	choose_mover(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*tmp;
-	t_list	*stack;
 	int		index;
 	int		i;
 	int		k;
-	int		l;
 	int		flag;
-	int		x;
+	t_list	*tmp;
 
 	flag = 0;
 	k = 2147483647;
@@ -59,22 +82,7 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 	while (tmp != *stack_b || !flag)
 	{
 		flag = 1;
-		i = 0;
-		stack = tmp;
-		x = direction(stack, (*stack_b)->content);
-		while (stack != *stack_b)
-		{
-			i++;
-			rotate(&stack, x);
-		}
-		l = prepare_stack_a(stack_a, tmp->content);
-		stack = *stack_a;
-		x = direction(stack, l);
-		while (stack->content != l)
-		{
-			i++;
-			rotate(&stack, x);
-		}
+		i = choose_mover_h(stack_a, stack_b, tmp);
 		if (i < k)
 		{
 			k = i;
@@ -85,12 +93,14 @@ int	choose_mover(t_list **stack_a, t_list **stack_b)
 	return (index);
 }
 
-void	move(t_list **stack_a, t_list **stack_b, int index, int *moves, int phase)
+void	move(t_list **stack_a, t_list **stack_b, int *moves, int phase)
 {
 	int	l;
 	int	x;
 	int	y;
+	int	index;
 
+	index = choose_mover(stack_a, stack_b);
 	l = prepare_stack_a(stack_a, index);
 	x = direction(*stack_b, index);
 	y = direction(*stack_a, l);
@@ -150,7 +160,7 @@ void	b_to_a(t_list **stack_a, t_list **stack_b, int *moves, int phase)
 		while (n)
 		{
 			index = choose_mover(stack_a, stack_b);
-			move(stack_a, stack_b, index, moves, phase);
+			move(stack_a, stack_b, moves, phase);
 			push(stack_b, stack_a);
 			if (phase == 1)
 				write(1, "pa\n", 3);
