@@ -74,8 +74,7 @@ void	a_to_b_h(int *moves, int phase, int move)
 		else
 			write(1, "ra\n", 3);
 	}
-	else
-		(*moves)++;
+	(*moves)++;
 }
 
 t_list	*a_to_b(t_list **stack_a, int markup_mode, int *moves, int phase)
