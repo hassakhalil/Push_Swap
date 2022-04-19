@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
-#include <string.h>
 
 int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 {
@@ -22,72 +21,38 @@ int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 	i = 0;
 	j = 0;
 	n = ft_lstsize(*stack_a);
+	//if (check_words(instruction))
+	//	return (-1);
 	while (instruction[i])
 	{
 		if (!ft_strncmp("sa", instruction[i], 3))
 			swap(stack_a);
-		else if (!ft_strncmp("sb", instruction[i], 3))
-		{
-			if (!j)
-				return (1);
+		else if (j && !ft_strncmp("sb", instruction[i], 3))
 			swap(stack_b);
-		}
-		else if (!ft_strncmp("pb", instruction[i], 3))
+		else if ((j + 1 < n) &&!ft_strncmp("pb", instruction[i], 3))
 		{
-			if (j + 1 < n)
-			{
-				push(stack_a, stack_b);
-				j++;
-			}
-			else
-				return (1);
+			push(stack_a, stack_b);
+			j++;
 		}
 		else if (!ft_strncmp("ra", instruction[i], 3))
 			rotate(stack_a, 0);
 		else if (!ft_strncmp("rra", instruction[i], 3))
 			rotate(stack_a, 1);
-		else if (!ft_strncmp("rb", instruction[i], 3))
-		{
-			if (!j)
-				return (1);
+		else if (j && !ft_strncmp("rb", instruction[i], 3))
 			rotate(stack_b, 0);
-		}
-		else if (!ft_strncmp("rrb", instruction[i], 3))
-		{
-			if (!j)
-				return (1);
+		else if (j && !ft_strncmp("rrb", instruction[i], 3))
 			rotate(stack_b, 1);
-		}
-		else if (!ft_strncmp("pa", instruction[i], 3))
+		else if (j && !ft_strncmp("pa", instruction[i], 3))
 		{
-			if (!j)
-				return (1);
 			push(stack_b, stack_a);
 			j--;
 		}
-		else if (!ft_strncmp("ss", instruction[i], 3))
-		{
-			swap(stack_a);
-			if (!j)
-				return (1);
-			swap(stack_b);
-		}
-		else if (!ft_strncmp("rr", instruction[i], 3))
-		{
-			if (!j)
-				return (1);
-			rotate(stack_a, 0);
-			rotate(stack_b, 0);
-		}
-		else if (!ft_strncmp("rrr", instruction[i], 3))
-		{
-			if (!j)
-				return (1);
-			rotate(stack_a, 1);
-			rotate(stack_b, 1);
-		}
-		else
-			return (-1);
+		else if (j && !ft_strncmp("ss", instruction[i], 3))
+			ss(stack_a, stack_b);
+		else if (j && !ft_strncmp("rr", instruction[i], 3))
+			rr(stack_a, stack_b, 0);
+		else if (j && !ft_strncmp("rrr", instruction[i], 3))
+			rr(stack_a, stack_b, 1);
 		i++;
 	}
 	if (j)

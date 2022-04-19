@@ -47,6 +47,12 @@ void	rr(t_list **stack_a, t_list **stack_b, int x)
 	rotate(stack_b, x);
 }
 
+void	ss(t_list **stack_a, t_list **stack_b)
+{
+	swap(stack_a);
+	swap(stack_b);
+}
+
 void	move(t_list **stack_a, t_list **stack_b, int *moves, int phase)
 {
 	int	l;
