@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "checker_bonus.h"
 
 void	move_h(int phase, int *moves, int x, int move)
 {
@@ -80,4 +81,32 @@ void	move(t_list **stack_a, t_list **stack_b, int *moves, int phase)
 		rotate(stack_a, y);
 		move_h(phase, moves, y, 3);
 	}
+}
+
+int	check_words(char **instructions)
+{
+	int	i;
+
+	i = 0;
+	while (instructions[i])
+	{
+		if (!ft_strncmp(instructions[i], "sa", ft_strlen(instructions[i]))
+			|| !ft_strncmp(instructions[i], "sb", ft_strlen(instructions[i]))
+			|| !ft_strncmp(instructions[i], "ss", ft_strlen(instructions[i])))
+			i++;
+		else if (!ft_strncmp(instructions[i], "ra", ft_strlen(instructions[i]))
+			|| !ft_strncmp(instructions[i], "rb", ft_strlen(instructions[i]))
+			|| !ft_strncmp(instructions[i], "rr", ft_strlen(instructions[i])))
+			i++;
+		else if (!ft_strncmp(instructions[i], "rra", ft_strlen(instructions[i]))
+			|| !ft_strncmp(instructions[i], "rrb", ft_strlen(instructions[i]))
+			|| !ft_strncmp(instructions[i], "rrr", ft_strlen(instructions[i])))
+			i++;
+		else if (!ft_strncmp(instructions[i], "pa", ft_strlen(instructions[i]))
+			|| !ft_strncmp(instructions[i], "pb", ft_strlen(instructions[i])))
+			i++;
+		else
+			return (-1);
+	}
+	return (0);
 }

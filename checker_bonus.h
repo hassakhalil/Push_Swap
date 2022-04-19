@@ -15,9 +15,10 @@
 # include "push_swap.h"
 # include "get_next_line.h"
 
-void	checker(t_list *stack_a);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*ft_strjoin(char const *s1, char const *s2);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
+void    checker(t_list *stack_a);
+int	    ft_strncmp(const char *s1, const char *s2, size_t n);
+char    *ft_strjoin(char const *s1, char const *s2);
+void    *ft_memcpy(void *dest, const void *src, size_t n);
+int     check_words(char **instructions);
 
 #endif

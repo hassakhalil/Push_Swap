@@ -21,37 +21,37 @@ int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 	i = 0;
 	j = 0;
 	n = ft_lstsize(*stack_a);
-	//if (check_words(instruction))
-	//	return (-1);
+	if (check_words(instruction))
+		return (-1);
 	while (instruction[i])
 	{
-		if (!ft_strncmp("sa", instruction[i], 3))
+		if (!ft_strncmp("sa", instruction[i], ft_strlen(instruction[i])))
 			swap(stack_a);
-		else if (j && !ft_strncmp("sb", instruction[i], 3))
+		else if (j && !ft_strncmp("sb", instruction[i], ft_strlen(instruction[i])))
 			swap(stack_b);
-		else if ((j + 1 < n) &&!ft_strncmp("pb", instruction[i], 3))
+		else if ((j + 1 < n) &&!ft_strncmp("pb", instruction[i], ft_strlen(instruction[i])))
 		{
 			push(stack_a, stack_b);
 			j++;
 		}
-		else if (!ft_strncmp("ra", instruction[i], 3))
+		else if (!ft_strncmp("ra", instruction[i], ft_strlen(instruction[i])))
 			rotate(stack_a, 0);
-		else if (!ft_strncmp("rra", instruction[i], 3))
+		else if (!ft_strncmp("rra", instruction[i], ft_strlen(instruction[i])))
 			rotate(stack_a, 1);
-		else if (j && !ft_strncmp("rb", instruction[i], 3))
+		else if (j && !ft_strncmp("rb", instruction[i], ft_strlen(instruction[i])))
 			rotate(stack_b, 0);
-		else if (j && !ft_strncmp("rrb", instruction[i], 3))
+		else if (j && !ft_strncmp("rrb", instruction[i], ft_strlen(instruction[i])))
 			rotate(stack_b, 1);
-		else if (j && !ft_strncmp("pa", instruction[i], 3))
+		else if (j && !ft_strncmp("pa", instruction[i], ft_strlen(instruction[i])))
 		{
 			push(stack_b, stack_a);
 			j--;
 		}
-		else if (j && !ft_strncmp("ss", instruction[i], 3))
+		else if (j && !ft_strncmp("ss", instruction[i], ft_strlen(instruction[i])))
 			ss(stack_a, stack_b);
-		else if (j && !ft_strncmp("rr", instruction[i], 3))
+		else if (j && !ft_strncmp("rr", instruction[i], ft_strlen(instruction[i])))
 			rr(stack_a, stack_b, 0);
-		else if (j && !ft_strncmp("rrr", instruction[i], 3))
+		else if (j && !ft_strncmp("rrr", instruction[i], ft_strlen(instruction[i])))
 			rr(stack_a, stack_b, 1);
 		i++;
 	}
