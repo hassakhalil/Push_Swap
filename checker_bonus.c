@@ -12,6 +12,30 @@
 
 #include "checker_bonus.h"
 
+int	execution_h(t_list **stack_a, t_list **stack_b, char * instruction, int *j)
+{
+	if (!(*j))
+		return (1);
+	else if (!ft_strncmp("pa", instruction, 3))
+	{
+		push(stack_b, stack_a);
+		(*j)--;
+	}
+	else if (!ft_strncmp("sb", instruction, 3))
+		swap(stack_b);
+	else if (!ft_strncmp("rb", instruction, 3))
+		rotate(stack_b, 0);
+	else if (!ft_strncmp("rrb", instruction, 4))
+		rotate(stack_b, 1);
+	else if (!ft_strncmp("ss", instruction, 3))
+		ss(stack_a, stack_b);
+	else if (!ft_strncmp("rr", instruction, 3))
+		rr(stack_a, stack_b, 0);
+	else if (!ft_strncmp("rrr", instruction, 4))
+		rr(stack_a, stack_b, 1);
+	return (0);
+}
+
 int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 {
 	int	i;
@@ -38,25 +62,8 @@ int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 			push(stack_a, stack_b);
 			j++;
 		}
-		else if (!j)
+		else if (execution_h(stack_a, stack_b, instruction[i], &j))
 			return (1);
-		else if (!ft_strncmp("pa", instruction[i], 3))
-		{
-			push(stack_b, stack_a);
-			j--;
-		}
-		else if (!ft_strncmp("sb", instruction[i], 3))
-			swap(stack_b);
-		else if (!ft_strncmp("rb", instruction[i], 3))
-			rotate(stack_b, 0);
-		else if (!ft_strncmp("rrb", instruction[i], 4))
-			rotate(stack_b, 1);
-		else if (!ft_strncmp("ss", instruction[i], 3))
-			ss(stack_a, stack_b);
-		else if (!ft_strncmp("rr", instruction[i], 3))
-			rr(stack_a, stack_b, 0);
-		else if (!ft_strncmp("rrr", instruction[i], 4))
-			rr(stack_a, stack_b, 1);
 		i++;
 	}
 	if (j)
