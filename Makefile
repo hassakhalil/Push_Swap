@@ -12,7 +12,7 @@
 
 NAME = push_swap
 
-NAME_BONUS = checker
+B_NAME = checker
 
 SRC = ft_split.c parsing.c push_swap_utils.c push_swap_utils2.c push_swap_utils3.c push_swap_utils4.c push_swap_utils5.c get_next_line_utils.c indexation.c markup.c  swap.c push.c rotate.c a_to_b.c b_to_a.c check_for_error.c
 
@@ -29,13 +29,15 @@ $(NAME): $(OBJ) push_swap.o
 
 all: $(NAME)
 
-bonus: $(OBJ) $(B_OBJ)
-	cc $(CFLAGS) $(OBJ) $(B_OBJ) -o $(NAME_BONUS)
+$(B_NAME): $(OBJ) $(B_OBJ)
+	cc $(CFLAGS) $(OBJ) $(B_OBJ) -o $(B_NAME)
+
+bonus: $(B_NAME)
 
 clean:
 	rm -rf $(OBJ) $(B_OBJ) checker_bonus.o push_swap.o
 
 fclean: clean
-	rm -rf $(NAME) $(NAME_BONUS)
+	rm -rf $(NAME) $(B_NAME)
 
 re: fclean all
