@@ -64,7 +64,7 @@ int	main(int argc, char *argv[])
 	int		l;
 
 	s = parsing(argc, argv);
-	if (count(s) > 2 && !check_for_error(count(s), s))
+	if (!check_for_error(count(s), s) && count(s) > 2)
 	{
 		stack_a = indexation(count(s), s);
 		stack_b = a_to_b(&stack_a, test(s), &l, 1);

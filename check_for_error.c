@@ -18,7 +18,11 @@ int	is_number(char *argv)
 
 	j = 0;
 	if (argv[j] == '-' || argv[j] == '+')
+	{
 		j++;
+		if (!ft_isdigit(argv[j]))
+			return (1);
+	}
 	while (argv[j])
 	{
 		if (!ft_isdigit(argv[j]))
