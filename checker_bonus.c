@@ -40,17 +40,17 @@ int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 		}
 		else if (!j)
 			return (1);
+		else if (!ft_strncmp("pa", instruction[i], 3))
+		{
+			push(stack_b, stack_a);
+			j--;
+		}
 		else if (!ft_strncmp("sb", instruction[i], 3))
 			swap(stack_b);
 		else if (!ft_strncmp("rb", instruction[i], 3))
 			rotate(stack_b, 0);
 		else if (!ft_strncmp("rrb", instruction[i], 4))
 			rotate(stack_b, 1);
-		else if (!ft_strncmp("pa", instruction[i], 3))
-		{
-			push(stack_b, stack_a);
-			j--;
-		}
 		else if (!ft_strncmp("ss", instruction[i], 3))
 			ss(stack_a, stack_b);
 		else if (!ft_strncmp("rr", instruction[i], 3))
