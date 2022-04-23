@@ -55,7 +55,7 @@ t_list	*indexation(int argc, char *argv[])
 	t_list	*stack_a;
 	int		*numbers;
 
-	stack_a = NULL;
+	stack_a = 0;
 	numbers = convert(argc, argv);
 	numbers = sort(argc, numbers);
 	j = 1;

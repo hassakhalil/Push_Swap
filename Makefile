@@ -24,8 +24,8 @@ B_OBJ = $(B_SRC:.c=.o)
 
 CFLAGS = -D BUFFER_SIZE=42 -Wall -Wextra -Werror
 
-$(NAME): $(OBJ)
-	cc $(CFLAGS) $(OBJ)  push_swap.c -o $(NAME)
+$(NAME): $(OBJ) push_swap.o
+	cc $(CFLAGS) $(OBJ) push_swap.o -o $(NAME)
 
 all: $(NAME)
 

@@ -77,11 +77,9 @@ char	**parsing(int argc, char *argv[])
 	int		n;
 
 	s = total_of_args(argc, argv);
-	if (!s)
-		return (0);
 	i = 0;
 	n = 0;
-	while (argv[i])
+	while (s && argv[i])
 	{
 		si = ft_split(argv[i], ' ');
 		j = 0;
@@ -91,8 +89,10 @@ char	**parsing(int argc, char *argv[])
 			n++;
 			j++;
 		}
+		free(si[j]);
 		i++;
 	}
-	s[n] = NULL;
+	if (s)
+		s[n] = NULL;
 	return (s);
 }

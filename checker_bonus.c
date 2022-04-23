@@ -67,6 +67,7 @@ char	**checker_h(void)
 	if (!ft_strncmp(si, "Error\n", 5))
 	{
 		write(2, "Error\n", 6);
+		free(si);
 		return (0);
 	}
 	s = ft_strdup("\n");
