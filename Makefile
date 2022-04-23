@@ -6,7 +6,7 @@
 #    By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 21:49:34 by hkhalil           #+#    #+#              #
-#    Updated: 2022/04/18 06:27:16 by hkhalil          ###   ########.fr        #
+#    Updated: 2022/04/23 07:31:41 by hkhalil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJ = $(SRC:.c=.o)
 
 B_OBJ = $(B_SRC:.c=.o)
 
-CFLAGS = -D BUFFER_SIZE=42 -fsanitize=address -Wall -Wextra -Werror
+CFLAGS = -D BUFFER_SIZE=42 -Wall -Wextra -Werror
 
 $(NAME): $(OBJ) 
 	cc $(CFLAGS) $(OBJ)  push_swap.c -o $(NAME)
