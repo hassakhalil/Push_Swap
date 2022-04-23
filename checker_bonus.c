@@ -117,7 +117,6 @@ void	checker(t_list *stack_a)
 	}
 	if (verification(stack_a))
 	{
-		printf("hello|||||||||||||| world!\n");
 		write(1, "KO\n", 3);
 		return ;
 	}
