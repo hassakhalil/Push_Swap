@@ -12,7 +12,27 @@
 
 #include "checker_bonus.h"
 
-int	execution_h(t_list **stack_a, t_list **stack_b, char * instruction, int *j)
+int	execution_h1(t_list **stack_a, char *instruction)
+{
+	if (!ft_strncmp("sa", instruction, 3))
+	{
+		swap(stack_a);
+		return (1);
+	}
+	else if (!ft_strncmp("ra", instruction, 3))
+	{
+		rotate(stack_a, 0);
+		return (1);
+	}
+	else if (!ft_strncmp("rra", instruction, 4))
+	{
+		rotate(stack_a, 1);
+		return (1);
+	}
+	return (0);
+}
+
+int	execution_h2(t_list **stack_a, t_list **stack_b, char *instruction, int *j)
 {
 	if (!(*j))
 		return (1);
@@ -49,12 +69,8 @@ int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 		return (-1);
 	while (instruction[i])
 	{
-		if (!ft_strncmp("sa", instruction[i], 3))
-			swap(stack_a);
-		else if (!ft_strncmp("ra", instruction[i], 3))
-			rotate(stack_a, 0);
-		else if (!ft_strncmp("rra", instruction[i], 4))
-			rotate(stack_a, 1);
+		if (execution_h1(stack_a, instruction[i]))
+			;
 		else if (!ft_strncmp("pb", instruction[i], 3))
 		{
 			if (!(j + 1 < n))
@@ -62,13 +78,11 @@ int	execution(char **instruction, t_list **stack_a, t_list **stack_b)
 			push(stack_a, stack_b);
 			j++;
 		}
-		else if (execution_h(stack_a, stack_b, instruction[i], &j))
+		else if (execution_h2(stack_a, stack_b, instruction[i], &j))
 			return (1);
 		i++;
 	}
-	if (j)
-		return (1);
-	return (0);
+	return (j);
 }
 
 int	verification(t_list *stack_a)
@@ -79,10 +93,7 @@ int	verification(t_list *stack_a)
 	while (head->next != stack_a)
 	{
 		if (head->content > head->next->content)
-		{
-			printf("%d\n", head->content);
 			return (1);
-		}
 		head = head->next;
 	}
 	return (0);
@@ -94,6 +105,7 @@ void	checker(t_list *stack_a)
 	char	*si;
 	char	**instructions;
 	t_list	*stack_b;
+	int		n;
 
 	si = get_next_line(0);
 	if (!si)
@@ -113,21 +125,14 @@ void	checker(t_list *stack_a)
 	instructions = ft_split(s, '\n');
 	free(s);
 	stack_b = 0;
-	if (execution(instructions, &stack_a, &stack_b))
-	{
-		if (execution(instructions, &stack_a, &stack_b) == -1)
-			write(2, "Error\n", 6);
-		else
-			write(1, "KO\n", 3);
-		free_table(instructions);
-		return ;
-	}
-	if (verification(stack_a))
-	{
+	n = execution(instructions, &stack_a, &stack_b);
+	if (n == -1)
+		write(2, "Error\n", 6);
+	else if (n == 1 || verification(stack_a))
 		write(1, "KO\n", 3);
-		return ;
-	}
-	write(1, "OK\n", 3);
+	else
+		write(1, "OK\n", 3);
+	free_table(instructions);
 	free_stack(stack_a);
 	return ;
 }
