@@ -6,7 +6,7 @@
 /*   By: hkhalil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 01:43:57 by hkhalil           #+#    #+#             */
-/*   Updated: 2022/04/19 01:45:05 by hkhalil          ###   ########.fr       */
+/*   Updated: 2022/04/23 07:04:47 by hkhalil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,8 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 int		check_words(char **instructions);
+int		execution_h1(t_list **stack_a, char *instruction);
+int		execution_h2(t_list **stack_a, t_list **stack_b,
+			char *instruction, int *j);
 
 #endif
