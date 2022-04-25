@@ -89,7 +89,7 @@ char	**parsing(int argc, char *argv[])
 			n++;
 			j++;
 		}
-		free(si[j]);
+		free(si);
 		i++;
 	}
 	if (s)
