@@ -74,7 +74,6 @@ char	**checker_h(void)
 	while (si)
 	{
 		s = ft_strjoin(s, si);
-		free(si);
 		si = get_next_line(0);
 	}
 	instructions = ft_split(s, '\n');
@@ -119,4 +118,5 @@ int	main(int argc, char *argv[])
 		checker(stack_a);
 	}
 	free_table(s);
+	return (0);
 }
